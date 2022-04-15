@@ -18,24 +18,16 @@ data = [
 
 # ROUTES
 
-@app.route('/hi')
-def hello():
-   return 'Hi hi hi hi hi hi hi hi hi'
-
 
 @app.route('/')
-def hello_world():
-   return render_template('hello_world.html')   
+def home():
+   return render_template('home.html')  
 
 
-@app.route('/hello/<name>')
-def hello_name(name=None):
-    return render_template('hello_name.html', name=name) 
+@app.route('/quiz')
+def quiz():
+   return render_template('quiz.html')   
 
-
-@app.route('/people')
-def people():
-    return render_template('people.html', data=data)  
 
 
 # AJAX FUNCTIONS
