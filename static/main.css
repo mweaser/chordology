@@ -3,3 +3,9 @@
     padding-bottom:  10px;
     color: blue;
 }
+
+.symbol-style{
+    background-color: red;
+    width: 30px;
+    height: 30px;
+}
