@@ -1,16 +1,13 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
-
     <script type="text/javascript" src="{{ url_for('static', filename = 'quiz.js') }}"></script>
-    
-
 
     <div>Quiz</div>
-    <div id=symbols></div>
+    <div id="symbols"></div>
+    <div id="all-chords"></div>
 
-<div> <img class="image" id="chordimage" src="https://39zsbo2fj4og6a79534grq31-wpengine.netdna-ssl.com/wp-content/uploads/blank-963x1024.png"></div>
+<div> <img class="img-chord" id="chordimage" src="https://39zsbo2fj4og6a79534grq31-wpengine.netdna-ssl.com/wp-content/uploads/blank-963x1024.png"></div>
 
 
 {% endblock %}
