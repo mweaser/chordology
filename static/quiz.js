@@ -1,4 +1,3 @@
-
 function loadChords(chordNumber){
 
     let newPost2 = $("<img>")
@@ -257,26 +256,3 @@ $(document).ready(function(){
 
         
 });
-
-
-
-
-
-
-
-
-          
-
-
-
-
-
-
-
-          
-
-
-
-
-
-

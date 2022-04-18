@@ -115,6 +115,7 @@ miniquiz = [
 
 chords = ['A', 'Em', 'G', 'D', 'C', 'Am']
 chord_images = ['chord-a-major.png', 'chord-e-minor.png', 'chord-g-major.png', 'chord-d-major.png', 'chord-c-major.png', 'chord-a-minor.png']
+
 info = [
     {
         "id": 1,
@@ -141,6 +142,7 @@ info = [
         "Description": "The dots on the chord diagram indicate which strings should be pressed down at each fret. To make it easy to place your fingers comfortably, the dots are numbered to indicate which finger should press at each location."
     },
 ]
+
 
 chordsMCQ = {
     1:
@@ -224,9 +226,11 @@ def home():
 def learn_chords():
    return render_template('learn_chords.html', chords=chords, chord_images=chord_images)
 
+
 @app.route('/background')
 def background():
    return render_template('background.html', info =info)
+
 
 @app.route('/quiz/<id>')
 def quiz(id):
@@ -249,6 +253,15 @@ def quiz2():
 #         return make_response(redirect("/"))
 
 
+
+@app.route('/mcquiz/<int:id>')
+def mcquiz(id=0):
+    global michelin
+    for entry in michelin:
+        if entry["id"] == id:
+            return render_template('mcquiz.html', entry=entry, rest=None)
+    else:
+        return make_response(redirect("/"))
 
 if __name__ == '__main__':
    app.run(debug = True)
