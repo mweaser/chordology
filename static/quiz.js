@@ -80,10 +80,15 @@ $(document).ready(function(){
     loadChords(chordNumber)
     
     currentID = parseInt(chordNumber.id)
-    $("#ee").prop('href', "/quiz/" + currentID)
-    console.log("currentID is " + parseInt(currentID))
+
+    $("#ee").prop('href', "/quiz/" + 1)
+    // $("#nextButton").prop('href', "/quiz/" + 3)
+    console.log ("/quiz/" + currentID)
+  
     
     $("#choiceOne").click(function(){
+        currentID += 1
+        $("#nn").prop('href', "/quiz/" + currentID)
         selectRightAnswer()
 
         $("#choiceOne").attr("disabled", true);
@@ -97,11 +102,13 @@ $(document).ready(function(){
         currentID += 1;
         console.log("newID is " + parseInt(currentID))
 
-        if (currentID < 6){
+        if (currentID <= 6){
             $("#nextButton").css('visibility', 'visible');
+      
         }
-        else if (currentID == 6){
+        else if (currentID == 7){
             $("#resultsButton").css('visibility', 'visible');
+      
         }
         
 
@@ -124,11 +131,12 @@ $(document).ready(function(){
         console.log("one is " + one)
         console.log("one Answer is " + answer)
         
-        
-
     })
 
     $("#choiceTwo").click(function(){
+        currentID += 1
+        $("#nn").prop('href', "/quiz/" + currentID)
+        $("#rr").prop('href', "/quiz/" + 1)
         selectRightAnswer()
 
         $("#choiceOne").attr("disabled", true);
@@ -142,10 +150,10 @@ $(document).ready(function(){
         currentID += 1;
         console.log("newID is " + parseInt(currentID))
 
-        if (currentID < 6){
+        if (currentID <= 7){
             $("#nextButton").css('visibility', 'visible');
         }
-        else if (currentID == 6){
+        else if (currentID == 8){
             $("#resultsButton").css('visibility', 'visible');
         }
 
@@ -165,6 +173,8 @@ $(document).ready(function(){
     })
 
     $("#choiceThree").click(function(){
+        currentID += 1
+        $("#nn").prop('href', "/quiz/" + currentID)
         selectRightAnswer()
 
         $("#choiceOne").attr("disabled", true);
@@ -178,10 +188,10 @@ $(document).ready(function(){
         currentID += 1;
         console.log("newID is " + parseInt(currentID))
 
-        if (currentID < 6){
+        if (currentID <= 7){
             $("#nextButton").css('visibility', 'visible');
         }
-        else if (currentID == 6){
+        else if (currentID == 8){
             $("#resultsButton").css('visibility', 'visible');
         }
 
@@ -199,6 +209,8 @@ $(document).ready(function(){
     })
 
     $("#choiceFour").click(function(){
+        currentID += 1
+        $("#nn").prop('href', "/quiz/" + currentID)
         selectRightAnswer()
 
         $("#choiceOne").attr("disabled", true);
@@ -212,10 +224,10 @@ $(document).ready(function(){
         currentID += 1;
         console.log("newID is " + parseInt(currentID))
 
-        if (currentID < 6){
+        if (currentID <= 7){
             $("#nextButton").css('visibility', 'visible');
         }
-        else if (currentID == 6){
+        else if (currentID == 8){
             $("#resultsButton").css('visibility', 'visible');
         }
 

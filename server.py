@@ -191,9 +191,9 @@ def home():
    return render_template('home.html')
 
 
-@app.route('/quiz')
-def quiz():
-   chordNumber = chords[1]
+@app.route('/quiz/<id>')
+def quiz(id):
+   chordNumber = chords[int(id)]
    return render_template('quiz.html', chordNumber = chordNumber, chords = chords)
 
 
