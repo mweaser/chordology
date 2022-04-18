@@ -14,7 +14,6 @@ function createButtons(chords, chord_images) {
     });
 }
 
-
 $(document).ready(function(){
     createButtons(chords, chord_images)
 })

@@ -1,213 +1,258 @@
-let symbols = [
-    "1",
-    "2",
-    "3",
-]
-let toggles = [
-    {
-        "id": "but0",
-        "show": "O",
-    },
-    {
-        "id": "but1",
-        "show": "O",
-    },
-    {
-        "id": "but2",
-        "show": "O",
-    },
-    {
-        "id": "but3",
-        "show": "O",
-    },
-    {
-        "id": "but4",
-        "show": "O",
+function loadChords(chordNumber){
+
+    let newPost2 = $("<img>")
+    let inputString2 = chordNumber.image
+    $(newPost2).prop('src', inputString2)
+    $(newPost2).prop('id', 'image')
+    $("#image").append(newPost2)
+
+    let newPost3 = $("<button>")
+    let inputString3 = chordNumber.choiceOne
+    $(newPost3).text(inputString3)  
+    $(newPost3).prop('id', 'choiceOne')
+    $(newPost3).prop('value', inputString3)
+    $("#rowOne").append(newPost3)
+
+    let newPost4 = $("<button>")
+    let inputString4 = chordNumber.choiceTwo
+    $(newPost4).text(inputString4)  
+    $(newPost4).prop('id', 'choiceTwo')
+    $(newPost4).prop('value', inputString4)
+    $("#rowOne").append(newPost4)
+
+    let newPost5 = $("<button>")
+    let inputString5 = chordNumber.choiceThree
+    $(newPost5).text(inputString5)  
+    $(newPost5).prop('id', 'choiceThree')
+    $(newPost5).prop('value', inputString5)
+    $("#rowTwo").append(newPost5)
+
+    let newPost6 = $("<button>")
+    let inputString6 = chordNumber.choiceFour
+    $(newPost6).text(inputString6)  
+    $(newPost6).prop('id', 'choiceFour')
+    $(newPost6).prop('value', inputString6)
+    $("#rowTwo").append(newPost6)
+
+}
+
+function selectRightAnswer(){
+    let one = $("#choiceOne").attr('value')
+    let two = $("#choiceTwo").attr('value')
+    let three = $("#choiceThree").attr('value')
+    let four = $("#choiceFour").attr('value')
+    let answer = chordNumber.answer
+
+    if (one == answer){
+        $("#choiceOne").css('background-color','green');
     }
-]
 
-function emprow(index, symbol){
-    let entry = $("<div></div>")
-    entry.html(symbol)
-    entry.addClass("ui-widget-content")
-    entry.addClass("symbol-style")
-    entry.addClass("symbol_entry")
-    entry.attr("data-name",symbol)
-    return entry
-  }
+    if (two == answer){
+        $("#choiceTwo").css('background-color','green');
+    }
 
-// function togrow(index, toggle, id){
-//     let entry = $("<div></div>")
-//     entry.html(toggle)
-//     entry.addClass("btn")
-//     entry.addClass("togglebut")
-//     entry.addClass("btn-outline-success")
-//     entry.addClass("symbol_entry")
-//     entry.attr("id",id)
-//     return entry
-// }
-// function maketoggle(togglesentry){
-//     $("#butt_ent").empty()
-//     $.each(["#butt_ent"], function(index, value){
-//         let allist = [togglesentry][index]
-//         // console.log(allist)
-//         $.each(allist, function(ind, sym){
-//         let newsym = emprow(ind, sym)
-//         $(value).append(newsym)
-//         })
-//     });
-// }
+    if (three == answer){
+        $("#choiceThree").css('background-color','green');
+    }
 
-function makeNames(symbolsentry){
-$("#symb_ent").empty()
-$.each(["#symb_ent"], function(index, value){
-    let allist = [symbolsentry][index]
-    $.each(allist, function(ind, sym){
-    let newsym = emprow(ind, sym)
-    $(value).append(newsym)
-    })
-});
-$(".symbol_entry").draggable({ 
-    revert: 'invalid',
-    });
+    if (four == answer){
+        $("#choiceFour").css('background-color','green');
+    }
 }
+
+// <!-- {
+//     "id": 1,
+//     "choiceOne": "A",
+//     "choiceTwo": "Em",
+//     "choiceThree": "G",
+//     "choiceFour": "D",
+//     "answer": "Em",
+//     "image": "/images/em_chord.png"
+//     } --
+
+
+
+$(document).ready(function(){
+   
+    $("#correctIncorrect").text("")
+    $("#nextButton").css('visibility', 'hidden');
+    $("#resultsButton").css('visibility', 'hidden');
+    
+    loadChords(chordNumber)
+    
+    currentID = parseInt(chordNumber.id)
+
+    $("#ee").prop('href', "/quiz/" + 1)
+    // $("#nextButton").prop('href', "/quiz/" + 3)
+    console.log ("/quiz/" + currentID)
   
-// function makesymbol(){
-//     let symbol = $("<div class='symbol-style ui-widget-content'>")
-//     symbol.draggable();
-//     $(symbol).html('<div>X</div>')
-//     $("#symbols").append(symbol)
-// }
+    
+    $("#choiceOne").click(function(){
+        currentID += 1
+        $("#nn").prop('href', "/quiz/" + currentID)
+        $("#rr").prop('href', "/quiz2")
+        selectRightAnswer()
 
-// function makeDroppableSpots() {
-//     let chordLoc = $("<div class='chord-loc-style'>")
-//     // $(chordLoc)[0].style('top', '800')
-//     // console.log(chordLoc[0].classList)
-//     chordLoc.droppable({ 
-//         drop: function( event, ui ) {
-//             let value = $(ui.draggable)
-//             // Get dropped name
-//             console.log(value) 
-//         }
-//     });
-//     $("#all-chords").append(chordLoc)
-// }
+        $("#choiceOne").attr("disabled", true);
+        $("#choiceTwo").attr("disabled", true);
+        $("#choiceThree").attr("disabled", true);
+        $("#choiceFour").attr("disabled", true);
+
+        let one = $(this).attr('value')
+        let answer = chordNumber.answer
+        
+        currentID += 1;
+        console.log("newID is " + parseInt(currentID))
+
+        if (currentID <= 6){
+            $("#nextButton").css('visibility', 'visible');
+      
+        }
+        else if (currentID == 7){
+            $("#resultsButton").css('visibility', 'visible');
+      
+        }
+        
+
+        if (one == answer){
+            $(this).css('background-color','green');
+            $("#correctIncorrect").text("Correct!")
+            $("#ee").prop('href', "/quiz/" + chordNumber.id)
+            let newPost = $("<button>")
+            let inputString = chordNumber.choiceTwo
+            $(newPost).text(inputString)  
+            $(newPost).prop('id', 'choiceTwo')
+            $(newPost).prop('value', inputString)
+            $("#rowOne").append(newPost)
+
+        }
+        else {
+            $(this).css('background-color','red');
+            $("#correctIncorrect").text("Incorrect!")
+        }
+
+        console.log("one is " + one)
+        console.log("one Answer is " + answer)
+        
+    })
+
+    $("#choiceTwo").click(function(){
+        currentID += 1
+        $("#nn").prop('href', "/quiz/" + currentID)
+        $("#rr").prop('href', "/quiz2")
+        selectRightAnswer()
+
+        $("#choiceOne").attr("disabled", true);
+        $("#choiceTwo").attr("disabled", true);
+        $("#choiceThree").attr("disabled", true);
+        $("#choiceFour").attr("disabled", true);
+
+        let two = $(this).attr('value')
+        let answer = chordNumber.answer
+
+        currentID += 1;
+        console.log("newID is " + parseInt(currentID))
+
+        if (currentID <= 7){
+            $("#nextButton").css('visibility', 'visible');
+        }
+        else if (currentID == 8){
+            $("#resultsButton").css('visibility', 'visible');
+        }
+
+        if (two == answer){
+            $(this).css('background-color','green');
+            $("#correctIncorrect").text("Correct!")
+            
+        }
+        else {
+            $(this).css('background-color','red');
+            $("#correctIncorrect").text("Incorrect!")
+        }
+
+        console.log("two is " + two)
+        console.log("two Answer is " + answer)
+        
+
+    })
+
+    $("#choiceThree").click(function(){
+        currentID += 1
+        $("#nn").prop('href', "/quiz/" + currentID)
+        $("#rr").prop('href', "/quiz2")
+        selectRightAnswer()
+
+        $("#choiceOne").attr("disabled", true);
+        $("#choiceTwo").attr("disabled", true);
+        $("#choiceThree").attr("disabled", true);
+        $("#choiceFour").attr("disabled", true);
+
+        let three = $(this).attr('value')
+        let answer = chordNumber.answer
+
+        currentID += 1;
+        console.log("newID is " + parseInt(currentID))
+
+        if (currentID <= 7){
+            $("#nextButton").css('visibility', 'visible');
+        }
+        else if (currentID == 8){
+            $("#resultsButton").css('visibility', 'visible');
+        }
+
+        if (three == answer){
+            $("#correctIncorrect").text("Correct!")
+            $(this).css('background-color','green');
+        }
+        else {
+            $("#correctIncorrect").text("Incorrect!")
+            $(this).css('background-color','red');
+        }
+
+        console.log("three is " + three)
+        console.log("three Answer is " + answer)
+        
+
+    })
+
+    $("#choiceFour").click(function(){
+        currentID += 1
+        $("#nn").prop('href', "/quiz/" + currentID)
+        $("#rr").prop('href', "/quiz2")
+        selectRightAnswer()
+
+        $("#choiceOne").attr("disabled", true);
+        $("#choiceTwo").attr("disabled", true);
+        $("#choiceThree").attr("disabled", true);
+        $("#choiceFour").attr("disabled", true);
+
+        let four = $(this).attr('value')
+        let answer = chordNumber.answer
+
+        currentID += 1;
+        console.log("newID is " + parseInt(currentID))
+
+        if (currentID <= 7){
+            $("#nextButton").css('visibility', 'visible');
+        }
+        else if (currentID == 8){
+            $("#resultsButton").css('visibility', 'visible');
+        }
+
+        if (four == answer){
+            $("#correctIncorrect").text("Correct!")
+            $(this).css('background-color','green');
+        }
+        else {
+            $("#correctIncorrect").text("Incorrect!")
+            $(this).css('background-color','red');
+        }
+
+        console.log(four)
+        console.log(answer)
+        
+    })
 
 
-function togglebutton() {
-    // a 1d array of length 6 to represent the toggle setting
-    let toggleloc = new Array(6)
-    $("#but0").click(function() { 
-        if ($(this).text() == "O") { 
-            $(this).text("X"); 
-            toggleloc[0] = 2
-            console.log(toggleloc)
-        } else { 
-            $(this).text("O");
-            toggleloc[0] = 1 
-            console.log(toggleloc)
-        }; 
-    });
-    $("#but1").click(function() { 
-        if ($(this).text() == "O") { 
-            $(this).text("X"); 
-            toggleloc[1] = 2
-        } else { 
-            $(this).text("O");
-            toggleloc[1] = 1 
-        }; 
-    });
-    $("#but2").click(function() { 
-        if ($(this).text() == "O") { 
-            $(this).text("X"); 
-            toggleloc[2] = 2
-        } else { 
-            $(this).text("O");
-            toggleloc[2] = 1 
-        }; 
-    });
-    $("#but3").click(function() { 
-        if ($(this).text() == "O") { 
-            $(this).text("X"); 
-            toggleloc[3] = 2
-        } else { 
-            $(this).text("O");
-            toggleloc[3] = 1 
-        }; 
-    });
-    $("#but4").click(function() { 
-        if ($(this).text() == "O") { 
-            $(this).text("X"); 
-            toggleloc[4] = 2
-        } else { 
-            $(this).text("O");
-            toggleloc[4] = 1 
-        }; 
-    });
-    $("#but5").click(function() { 
-        if ($(this).text() == "O") { 
-            $(this).text("X"); 
-            toggleloc[5] = 2
-        } else { 
-            $(this).text("O");
-            toggleloc[5] = 1 
-        }; 
-    });
-    return toggleloc
-}
-
-
-function dragdrop(){
-    // a 1d array of length 36 to represent the dropped location.
-    let droppedloc = new Array(36)
-    $("#chordimage").droppable({
-      drop: function( event, ui ) {
-        name = ui.draggable.attr('data-name')
-        console.log(name)
-        original = ui.draggable.parent().attr('id')
-        if (original == "symb_ent"){
-          let pos = $( name ).index( symbols )
-          symbols.splice(pos,1)
-          
-        //symbols.push(name)
-        }
-        let newPosX = ui.offset.left - $(this).offset().left;
-        let newPosY = ui.offset.top - $(this).offset().top;
-        console.log(newPosX)
-        console.log(newPosY)
-        let countx = 0
-        while (newPosX > 40){
-            newPosX -= 51
-            countx += 1
-        }
-        // these coordinates are specific to the given graph
-        if ( (newPosY > 76 && newPosY < 117)){
-            droppedloc[countx+5] = name
-        }
-        if ( (newPosY > 171 && newPosY < 209)){
-            droppedloc[countx+10] = name
-        }
-        if ( (newPosY > 266 && newPosY < 301)){
-            droppedloc[countx+10] = name
-        }
-        if ( (newPosY > 171 && newPosY < 209)){
-            droppedloc[countx+10] = name
-        }
-        if ( (newPosY > 171 && newPosY < 209)){
-            droppedloc[countx+10] = name
-        }
-        console.log(droppedloc)
-        makeNames(symbols)
-      },
-      });
-  }
-
-
-$(document).ready(function() {
-    // makesymbol()
-    makeNames(symbols)
-    // makeDroppableSpots()
-    // maketoggle(toggles)
-    dragdrop()
-    togglebutton()
-})
+        
+});
