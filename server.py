@@ -237,6 +237,10 @@ def quiz(id):
 def quiz2():
    return render_template('quiz2.html')
 
+@app.route('/results')
+def results():
+   return render_template('results.html')
+
 
 # AJAX FUNCTIONS
 # @app.route('/mcquiz/<int:id>')
