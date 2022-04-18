@@ -22,7 +22,7 @@ data = [
             [0, 0, 0, 0, 0, 0],
             [0, 0, 2, 1, 3, 0],
             [0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0]
+            [0, 0, 0, 0, 0, 0],
         ]
     },
     {
@@ -33,6 +33,7 @@ data = [
             [1, 0, 0, 1, 1, 1],
             [0, 0, 0, 0, 0, 0],
             [0, 1, 2, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0],
         ]
     },
@@ -127,6 +128,7 @@ def quiz():
 
 
 
+
 # AJAX FUNCTIONS
 
 # ajax for people.js
@@ -152,6 +154,15 @@ def add_name():
     return jsonify(data = data)
 
 
+
+@app.route('/mcquiz/<int:id>')
+def mcquiz(id=0):
+    global michelin
+    for entry in michelin:
+        if entry["id"] == id:
+            return render_template('mcquiz.html', entry=entry, rest=None)
+    else:
+        return make_response(redirect("/"))
 
 if __name__ == '__main__':
    app.run(debug = True)
