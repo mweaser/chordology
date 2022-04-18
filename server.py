@@ -87,31 +87,6 @@ data = [
     }
 ]
 
-#QUIZ DATA
-#counting ABCD as top-left, top-right, bottom-left, bottom-right
-
-miniquiz = [
-    {
-        "id": 1,
-        "ans": "A",
-        "ans-text": "Top"
-    },
-    {
-        "id": 2,
-        "ans": "A",
-        "ans-text": "Pitch Increase"
-    },
-    {
-        "id": 3,
-        "ans": "B",
-        "ans-text": "Middle"
-    },
-    {
-        "id": 4,
-        "ans": "A",
-        "ans-text": "Played"
-    }
-]
 
 chords = ['A', 'Em', 'G', 'D', 'C', 'Am']
 chord_images = ['chord-a-major.png', 'chord-e-minor.png', 'chord-g-major.png', 'chord-d-major.png', 'chord-c-major.png', 'chord-a-minor.png']
@@ -225,6 +200,10 @@ def home():
 @app.route('/learn')
 def learn_chords():
    return render_template('learn_chords.html', chords=chords, chord_images=chord_images)
+
+@app.route('/background-quiz')
+def miniquiz():
+   return render_template('miniquiz.html')
 
 
 @app.route('/background')

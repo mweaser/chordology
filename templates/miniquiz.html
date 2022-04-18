@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <head>
+        <script type="text/javascript" src="{{ url_for('static', filename = 'miniquiz.js') }}"></script>
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+    </head>
+
+    <body>
+        <div class="row title">Background Information Quiz</div>
+        <div class="row">Test your knowledge on the background information you learned here!</div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <span>1</span>
+                    <span>From which end of the guitar are frets counted?</span>
+                </div>
+                <div class="row">
+                    <button class="MC-option MQ1 correct" id="MQ-1A">Top</button>
+                    <button class="MC-option MQ1" id="MQ-1B">Bottom</button>
+                </div>
+                <div class="row">
+                    <button class="MC-option MQ1" id="MQ-1C">Left</button>
+                    <button class="MC-option MQ1" id="MQ-1D">Right</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <span>2</span>
+                    <span>The number 2 on a chord diagram refers to which finger?</span>
+                </div>
+                <div class="row">
+                    <button class="MC-option MQ2" id="MQ-2A">Pinky</button>
+                    <button class="MC-option MQ2" id="MQ-2B">Index</button>
+                </div>
+                <div class="row">
+                    <button class="MC-option MQ2 correct" id="MQ-2C">Middle</button>
+                    <button class="MC-option MQ2" id="MQ-2D">Ring</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <span>3</span>
+                    <span>How does placing your finger on a string on a given fret change the sound of the string?</span>
+                </div>
+
+                <div class="row">
+                    <button class="MC-option MQ3" id="MQ-3A">Pitch Decrease</button>
+                    <button class="MC-option MQ3" id="MQ-3B">Blocks Sound</button>
+                </div>
+                <div class="row">
+                    <button class="MC-option MQ3" id="MQ-3C">Plays String</button>
+                    <button class="MC-option MQ3 correct" id="MQ-3D">Pitch Increase</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <span>4</span>
+                    <span>If a string has an O on top of it on a chord diagram, it is:</span>
+                </div>
+                <div class="row">
+                    <button class="MC-option MQ4" id="MQ-4A">Skipped</button>
+                    <button class="MC-option MQ4" id="MQ-4B">Pressed</button>
+                </div>
+                <div class="row">
+                    <button class="MC-option MQ4 correct" id="MQ-4C">Played</button>
+                    <button class="MC-option MQ4" id="MQ-4D">Muted</button>
+                </div>
+            </div>
+        </div>
+        <button id="restartMQ">Restart</button>
+        <button id="returnbg">Go back to background information</button>
+        <button id="learnchords">Learn chords</button>
+
+    </body>
+
+
+
+{% endblock %}
