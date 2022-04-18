@@ -116,46 +116,141 @@ miniquiz = [
 chords = ['A', 'Em', 'G', 'D', 'C', 'Am']
 chord_images = ['chord-a-major.png', 'chord-e-minor.png', 'chord-g-major.png', 'chord-d-major.png', 'chord-c-major.png', 'chord-a-minor.png']
 
+info = [
+    {
+        "id": 1,
+        "Title": "Guitar Anatomy",
+        "image" : "slide2.png",
+        "Description": "To understand chord diagrams, it's helpful to know a few basic parts of the guitar."
+    },
+     {
+        "id": 2,
+        "Title": "What is a chord diagram?",
+        "image" : "slide3.png",
+        "Description": "Chord diagrams represent an upright guitar in aquick schematic way. They're a quick tool to use when describing where you place your fingers in a given chord."
+    },
+    {
+        "id": 3,
+        "Title": "Open/Closed Strings",
+        "image" : "slide4.png",
+        "Description": "Strings that aren't pressed are designated as open- included in a strum - or closed - skipped when strumming."
+    },
+    {
+        "id": 4,
+        "Title": "Finger Placement",
+        "image" : "slide5.png",
+        "Description": "The dots on the chord diagram indicate which strings should be pressed down at each fret. To make it easy to place your fingers comfortably, the dots are numbered to indicate which finger should press at each location."
+    },
+]
 
+
+chordsMCQ = {
+    1:
+        {
+        "id": 1,
+        "choiceOne": "A",
+        "choiceTwo": "Em",
+        "choiceThree": "G",
+        "choiceFour": "D",
+        "answer": "Em",
+        "image": "https://chordbank.com/cb4dg/earthy_clo_1_750.png"
+        }
+    ,
+    2:
+        {
+        "id": 2,
+        "choiceOne": "A",
+        "choiceTwo": "Em",
+        "choiceThree": "G",
+        "choiceFour": "D",
+        "answer": "G",
+        "image": "https://chordbank.com/cb4dg/notable_cora_1_750.png"
+        }
+    ,
+    3:
+        {
+        "id": 3,
+        "choiceOne": "A",
+        "choiceTwo": "Em",
+        "choiceThree": "G",
+        "choiceFour": "D",
+        "answer": "D",
+        "image": "https://chordbank.com/cb4dg/acidic_mel_1_750.png"
+        }
+    ,
+    4:
+        {
+        "id": 4,
+        "choiceOne": "Am",
+        "choiceTwo": "A",
+        "choiceThree": "D",
+        "choiceFour": "G",
+        "answer": "A",
+        "image": "https://chordbank.com/cb4dg/artful_mae_1_750.png"
+        }
+    ,
+    5:
+        {
+        "id": 5,
+        "choiceOne": "Am",
+        "choiceTwo": "D",
+        "choiceThree": "C",
+        "choiceFour": "G",
+        "answer": "C",
+        "image": "https://chordbank.com/cb4dg/cagey_dani_1_750.png"
+        }
+    ,
+    6:
+        {
+        "id": 6,
+        "choiceOne": "G",
+        "choiceTwo": "A",
+        "choiceThree": "D",
+        "choiceFour": "Am",
+        "answer": "Am",
+        "image": "https://chordbank.com/cb4dg/artful_luigi_1_750.png"
+        }
+    ,
+    }
+
+print(chords)
 # ROUTES
-
 
 @app.route('/')
 def home():
    return render_template('home.html')
 
 
-@app.route('/quiz')
-def quiz():
-   return render_template('quiz.html')
 
 @app.route('/learn')
 def learn_chords():
    return render_template('learn_chords.html', chords=chords, chord_images=chord_images)
 
+
+@app.route('/background')
+def background():
+   return render_template('background.html', info =info)
+
+
+@app.route('/quiz/<id>')
+def quiz(id):
+   chordNumber = chordsMCQ[int(id)]
+   return render_template('quiz.html', chordNumber = chordNumber, chords = chordsMCQ)
+
+@app.route('/quiz2')
+def quiz2():
+   return render_template('quiz2.html')
+
+
 # AJAX FUNCTIONS
-
-# ajax for people.js
-@app.route('/add_name', methods=['GET', 'POST'])
-def add_name():
-    global data
-    global current_id
-
-    json_data = request.get_json()
-    name = json_data["name"]
-
-    # add new entry to array with
-    # a new id and the name the user sent in JSON
-    current_id += 1
-    new_id = current_id
-    new_name_entry = {
-        "name": name,
-        "id":  current_id
-    }
-    data.append(new_name_entry)
-
-    #send back the WHOLE array of data, so the client can redisplay it
-    return jsonify(data = data)
+# @app.route('/mcquiz/<int:id>')
+# def mcquiz(id=0):
+#     global michelin
+#     for entry in michelin:
+#         if entry["id"] == id:
+#             return render_template('mcquiz.html', entry=entry, rest=None)
+#     else:
+#         return make_response(redirect("/"))
 
 
 

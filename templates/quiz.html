@@ -1,27 +1,76 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    <script type="text/javascript" src="{{ url_for('static', filename = 'quiz.js') }}"></script>
-    <div class="container">
-    <div>Quiz</div>
-    <div id="symbols"></div>
-    <div id="all-chords"></div>
-    <div id="symbol_label" class="ui-widget-content">
-        <div id="symb_ent"></div> 
-    </div> 
-    </div>
-    <button class='togglebut btn btn-outline-success' id = "but1">O</button>
-    <button class='togglebut btn btn-outline-success' id = "but2">O</button>
-    <button class='togglebut btn btn-outline-success' id = "but3">O</button>
-    <button class='togglebut btn btn-outline-success' id = "but4">O</button>
-    <button class='togglebut btn btn-outline-success' id = "but5">O</button>
-    <!-- <div id="butt_label">
-            <div id="butt_ent"></div> 
-    </div>  -->
+    <head>
+        <script type="text/javascript" src="{{ url_for('static', filename = 'quiz.js') }}"></script>
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 
-    <div style="display: flex; justify-content: center;"> <img class="img-chord" id="chordimage" src="https://39zsbo2fj4og6a79534grq31-wpengine.netdna-ssl.com/wp-content/uploads/blank-963x1024.png">
+        <script>
+            let chordNumber = {{chordNumber|tojson}}
+            let chords = {{chords|tojson}} 
+        </script>
+
+    </head>
     
-    </div>
+    
+    <body id = "body">
+
+        <div id = "wholeTemplate">
+            <div class = "row">
+                <div id = "restartButton">
+                    <a id = "ee">Restart</a>
+                </div>      
+                <!-- <button id = "restartButton">
+                    Restart
+                </button> -->
+            </div>
+    
+            <div class = "row">
+                <div class = "col-6">
+                    <div id = "identify"> Identify this chord: </div>
+                    <div id = "image"></div>
+                </div>
+                <div class = "col-6">
+                    <div id = "rowOne"class = "row">
+                        
+                    </div>
+                    <div id = "rowTwo" class = "row">
+                        
+                    </div>                
+                </div>
+            </div>
+
+            <div id = "correctIncorrect" class = "row">
+                Hello
+            </div>
+
+            <div id = "nextButton" class = "row">
+                <a id = "nn">Next Question</a>
+            </div>
+
+            <div id = "resultsButton" class = "row">
+                <a id = "rr">Next Question</a>
+            </div>
+
+
+        </div>
+    
+        <!-- {
+            "id": 1,
+            "choiceOne": "A",
+            "choiceTwo": "Em",
+            "choiceThree": "G",
+            "choiceFour": "D",
+            "answer": "Em",
+            "image": "/images/em_chord.png"
+            } -->
+    
+    
+    </body>
+
 
 
 {% endblock %}
