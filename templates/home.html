@@ -2,6 +2,21 @@
 
 {% block content %}
 
-<b>Hello world!</b>
+<script type="text/javascript" src="{{ url_for('static', filename = 'home.js') }}"></script>
+
+<div class="home">
+    <div class="home-header">Chordology</div>
+    <div>
+        Chords are an important fundamental <br>
+        in learning how to play guitar! Learn <br>
+        how to read a chord diagram, identify <br>
+        some basic chords, and test your <br>
+        newfound knowledge!
+    </div>
+    <div>
+        <button id="start-learning" class="home-button">Start Learning</button>
+        <button id="test-yourself" class="home-button">Test Yourself!</button>
+    </div>
+</div>
 
 {% endblock %}

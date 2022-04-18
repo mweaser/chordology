@@ -1,15 +1,27 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
-
     <script type="text/javascript" src="{{ url_for('static', filename = 'quiz.js') }}"></script>
-    
-
-
-
+    <div class="container">
     <div>Quiz</div>
+    <div id="symbols"></div>
+    <div id="all-chords"></div>
+    <div id="symbol_label" class="ui-widget-content">
+        <div id="symb_ent"></div> 
+    </div> 
+    </div>
+    <button class='togglebut btn btn-outline-success' id = "but1">O</button>
+    <button class='togglebut btn btn-outline-success' id = "but2">O</button>
+    <button class='togglebut btn btn-outline-success' id = "but3">O</button>
+    <button class='togglebut btn btn-outline-success' id = "but4">O</button>
+    <button class='togglebut btn btn-outline-success' id = "but5">O</button>
+    <!-- <div id="butt_label">
+            <div id="butt_ent"></div> 
+    </div>  -->
 
+    <div style="display: flex; justify-content: center;"> <img class="img-chord" id="chordimage" src="https://39zsbo2fj4og6a79534grq31-wpengine.netdna-ssl.com/wp-content/uploads/blank-963x1024.png">
+    
+    </div>
 
 
 {% endblock %}
