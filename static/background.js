@@ -35,6 +35,7 @@ function createButtons(info, ct) {
             window.location.replace("/background-quiz")
         }
 
+
      })
 
   });
