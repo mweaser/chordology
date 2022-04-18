@@ -210,4 +210,7 @@ $(document).ready(function() {
     // maketoggle(toggles)
     dragdrop()
     togglebutton()
+    // $("#nextButton2").css('visibility', 'hidden');
+    // $("#resultsButton2").css('visibility', 'hidden');
+    
 })

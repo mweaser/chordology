@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'results.js') }}"></script>
+
+<body>
+
+    <div id = "resultsPage">
+        <div id = "youScored"> You scored:</div>
+        <div id = "score"> 5/7</div>
+        <div id = "youScored"> Go back and review, and try the test again!</div>
+        
+    </div>
+</body>
+
+{% endblock %}

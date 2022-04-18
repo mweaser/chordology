@@ -255,3 +255,78 @@
     font-size: 30px;
 }
 
+<<<<<<< HEAD
+#nextButton2{
+
+}
+
+#resultsButton2{
+
+}
+
+#nn2{
+    background-color: rgba(51, 51, 51, 0.05);
+    border-radius: 8px;
+    border-width: 0;
+    color: #333333;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 10px 12px;
+    text-align: center;
+    transition: all 200ms;
+    vertical-align: baseline;
+    white-space: nowrap;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-left: 800px;
+}
+
+#rr2{
+    background-color: rgba(51, 51, 51, 0.05);
+    border-radius: 8px;
+    border-width: 0;
+    color: #333333;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 10px 12px;
+    text-align: center;
+    transition: all 200ms;
+    vertical-align: baseline;
+    white-space: nowrap;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-left: 800px;
+}
+
+#resultsPage{
+    font-weight: bold;
+    font-size: 30px;
+}
+
+#youScored{
+    margin-top: 50px;
+    text-align: center;
+}
+
+#score{
+    margin-top: 50px;
+    color: darkgray;
+    font-size: 50px;
+    text-align: center;
+}
+=======
+>>>>>>> 69976108ce3e22329b9f4b87d813d47d25e9c72f
