@@ -16,7 +16,7 @@ data = [
     {
         "id": 1,
         "chord": "A",
-        "image":"",
+        "image":"chord-a-major.png",
         "layout": [
             [2, 1, 0, 0, 0, 1],
             [0, 0, 0, 0, 0, 0],
@@ -28,7 +28,7 @@ data = [
     {
         "id": 2,
         "chord": "Em",
-        "image":"",
+        "image":"chord-e-minor.png",
         "layout": [
             [1, 0, 0, 1, 1, 1],
             [0, 0, 0, 0, 0, 0],
@@ -40,7 +40,7 @@ data = [
     {
         "id": 3,
         "chord": "G",
-        "image":"",
+        "image":"chord-g-major.png",
         "layout": [
             [0, 0, 1, 1, 1, 0],
             [0, 0, 0, 0, 0, 0],
@@ -52,7 +52,7 @@ data = [
     {
         "id": 4,
         "chord": "D",
-        "image":"",
+        "image":"chord-d-major.png",
         "layout": [
             [2, 2, 1, 0, 0, 0],
             [0, 0, 0, 0, 0, 0],
@@ -64,7 +64,7 @@ data = [
     {
         "id": 5,
         "chord": "C",
-        "image":"",
+        "image":"chord-c-major.png",
         "layout": [
             [2, 0, 0, 1, 0, 1],
             [0, 0, 0, 0, 1, 0],
@@ -76,7 +76,7 @@ data = [
     {
         "id": 6,
         "chord": "Am",
-        "image":"",
+        "image":"chord-a-minor.png",
         "layout": [
             [2, 1, 0, 0, 0, 1],
             [0, 0, 0, 0, 1, 0],
