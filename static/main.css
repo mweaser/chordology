@@ -9,7 +9,7 @@
     max-height:500px;
     max-width:500px;
     height:auto;
-    width:auto;  
+    width:auto;
 }
 
 #choiceOne{
@@ -92,7 +92,7 @@
 }
 
 #rowTwo{
-    
+
 }
 
 #answerChoice{
@@ -265,4 +265,21 @@
     font-weight: bold;
     font-size: 30px;
 }
-
+.title{
+    font-size: 30px;
+    font-weight: bold;
+}
+.MC-option{
+    background-color: white;
+    border-color: lightgrey;
+    width: 40%;
+    height: 60px;
+    margin: 3px;
+    border-radius: 10px;
+}
+.MC-correct{
+    background-color: green
+}
+.MC-incorrect{
+    background-color: green
+}

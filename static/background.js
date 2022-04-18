@@ -4,14 +4,14 @@ function createButtons(info, ct) {
   $(".background-image").empty()
   $("#next_button").empty()
   let count = ct
-  
+
   $.each(info, function(index,  value) {
-      let titleentry = $("<div class='col-md-12'>")
+      let titleentry = $("<div>")
+
+      let desentry = $("<div>")
+      let button =$("<button class='btn btn-outline-success' value='Next' style='float: right;'> Next </button>")
       let entry = $("<div class='col-md-1'>")
-      let desentry = $("<div class='col-md-8'>")
-      let button =$("<button class='btn btn-outline-success'> </button>")
-      // let button = $("<button>")
-      
+
 
       if (value["id"] == count){
         titleentry.append(value["Title"])
@@ -24,20 +24,24 @@ function createButtons(info, ct) {
         entry.append(button)
         $("#next_button").append(entry)
       }
-    
+
       $(button).click(function() {
-        console.log(count)
-        if (count == 4){
-          window.location.href = "/learn"
+        if(count < 4){
+            console.log(count)
+            count += 1
+            createButtons(info, count)
         }
-        count += 1
-        createButtons(info, count)
+        else{
+            window.location.replace("/background-quiz")
+        }
+
+
      })
-     
+
   });
 }
 
 $(document).ready(function(){
   createButtons(info, 1)
-  
+
 })
