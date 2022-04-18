@@ -37,6 +37,30 @@ function loadChords(chordNumber){
 
 }
 
+function selectRightAnswer(){
+    let one = $("#choiceOne").attr('value')
+    let two = $("#choiceTwo").attr('value')
+    let three = $("#choiceThree").attr('value')
+    let four = $("#choiceFour").attr('value')
+    let answer = chordNumber.answer
+
+    if (one == answer){
+        $("#choiceOne").css('background-color','green');
+    }
+
+    if (two == answer){
+        $("#choiceTwo").css('background-color','green');
+    }
+
+    if (three == answer){
+        $("#choiceThree").css('background-color','green');
+    }
+
+    if (four == answer){
+        $("#choiceFour").css('background-color','green');
+    }
+}
+
 // <!-- {
 //     "id": 1,
 //     "choiceOne": "A",
@@ -50,24 +74,47 @@ function loadChords(chordNumber){
 
 
 $(document).ready(function(){
-    // console.log(chords)
-    // console.log("WAIT")
-    // console.log(chordNumber)
-    // $("#choiceOne").disabled = false;
-    // $("#choiceTwo").disabled = false;
-    // $("#choiceThree").disabled = false;
-    // $("#choiceFour").disabled = false;
+    $("#nextButton").css('visibility', 'hidden');
+    $("#resultsButton").css('visibility', 'hidden');
+    
     loadChords(chordNumber)
-    // console.log(chordNumber.image)
-    // $("#ee").prop('href', "/edit/" + playerName.id)
+    
+    currentID = parseInt(chordNumber.id)
+    $("#ee").prop('href', "/quiz/" + currentID)
+    console.log("currentID is " + parseInt(currentID))
     
     $("#choiceOne").click(function(){
+        selectRightAnswer()
+
+        $("#choiceOne").attr("disabled", true);
+        $("#choiceTwo").attr("disabled", true);
+        $("#choiceThree").attr("disabled", true);
+        $("#choiceFour").attr("disabled", true);
 
         let one = $(this).attr('value')
         let answer = chordNumber.answer
+        
+        currentID += 1;
+        console.log("newID is " + parseInt(currentID))
+
+        if (currentID < 6){
+            $("#nextButton").css('visibility', 'visible');
+        }
+        else if (currentID == 6){
+            $("#resultsButton").css('visibility', 'visible');
+        }
+        
 
         if (one == answer){
             $(this).css('background-color','green');
+
+            $("#ee").prop('href', "/quiz/" + chordNumber.id)
+            let newPost = $("<button>")
+            let inputString = chordNumber.choiceTwo
+            $(newPost).text(inputString)  
+            $(newPost).prop('id', 'choiceTwo')
+            $(newPost).prop('value', inputString)
+            $("#rowOne").append(newPost)
 
         }
         else {
@@ -77,32 +124,33 @@ $(document).ready(function(){
         console.log("one is " + one)
         console.log("one Answer is " + answer)
         
-        $('#choiceOne').one('submit', function() {
-            $(this).find('input[type="submit"]').attr('disabled','disabled');
-        });
-        $('#choiceTwo').one('submit', function() {
-            $(this).find('input[type="submit"]').attr('disabled','disabled');
-        });
-        $('#choiceThree').one('submit', function() {
-            $(this).find('input[type="submit"]').attr('disabled','disabled');
-        });
-        $('#choiceFour').one('submit', function() {
-            $(this).find('input[type="submit"]').attr('disabled','disabled');
-        });
+        
 
     })
 
     $("#choiceTwo").click(function(){
+        selectRightAnswer()
+
+        $("#choiceOne").attr("disabled", true);
+        $("#choiceTwo").attr("disabled", true);
+        $("#choiceThree").attr("disabled", true);
+        $("#choiceFour").attr("disabled", true);
 
         let two = $(this).attr('value')
         let answer = chordNumber.answer
 
+        currentID += 1;
+        console.log("newID is " + parseInt(currentID))
+
+        if (currentID < 6){
+            $("#nextButton").css('visibility', 'visible');
+        }
+        else if (currentID == 6){
+            $("#resultsButton").css('visibility', 'visible');
+        }
+
         if (two == answer){
             $(this).css('background-color','green');
-            $("#choiceOne").disabled = true;
-        $("#choiceTwo").disabled = true;
-        $("#choiceThree").disabled = true;
-        $("#choiceFour").disabled = true;
             
         }
         else {
@@ -112,25 +160,30 @@ $(document).ready(function(){
 
         console.log("two is " + two)
         console.log("two Answer is " + answer)
-        $('#choiceOne').one('submit', function() {
-            $(this).find('input[type="submit"]').attr('disabled','disabled');
-        });
-        $('#choiceTwo').one('submit', function() {
-            $(this).find('input[type="submit"]').attr('disabled','disabled');
-        });
-        $('#choiceThree').one('submit', function() {
-            $(this).find('input[type="submit"]').attr('disabled','disabled');
-        });
-        $('#choiceFour').one('submit', function() {
-            $(this).find('input[type="submit"]').attr('disabled','disabled');
-        });
+        
 
     })
 
     $("#choiceThree").click(function(){
+        selectRightAnswer()
+
+        $("#choiceOne").attr("disabled", true);
+        $("#choiceTwo").attr("disabled", true);
+        $("#choiceThree").attr("disabled", true);
+        $("#choiceFour").attr("disabled", true);
 
         let three = $(this).attr('value')
         let answer = chordNumber.answer
+
+        currentID += 1;
+        console.log("newID is " + parseInt(currentID))
+
+        if (currentID < 6){
+            $("#nextButton").css('visibility', 'visible');
+        }
+        else if (currentID == 6){
+            $("#resultsButton").css('visibility', 'visible');
+        }
 
         if (three == answer){
             $(this).css('background-color','green');
@@ -141,25 +194,30 @@ $(document).ready(function(){
 
         console.log("three is " + three)
         console.log("three Answer is " + answer)
-        $('#choiceOne').one('submit', function() {
-            $(this).find('input[type="submit"]').attr('disabled','disabled');
-        });
-        $('#choiceTwo').one('submit', function() {
-            $(this).find('input[type="submit"]').attr('disabled','disabled');
-        });
-        $('#choiceThree').one('submit', function() {
-            $(this).find('input[type="submit"]').attr('disabled','disabled');
-        });
-        $('#choiceFour').one('submit', function() {
-            $(this).find('input[type="submit"]').attr('disabled','disabled');
-        });
+        
 
     })
 
     $("#choiceFour").click(function(){
+        selectRightAnswer()
+
+        $("#choiceOne").attr("disabled", true);
+        $("#choiceTwo").attr("disabled", true);
+        $("#choiceThree").attr("disabled", true);
+        $("#choiceFour").attr("disabled", true);
 
         let four = $(this).attr('value')
         let answer = chordNumber.answer
+
+        currentID += 1;
+        console.log("newID is " + parseInt(currentID))
+
+        if (currentID < 6){
+            $("#nextButton").css('visibility', 'visible');
+        }
+        else if (currentID == 6){
+            $("#resultsButton").css('visibility', 'visible');
+        }
 
         if (four == answer){
             $(this).css('background-color','green');
@@ -170,22 +228,9 @@ $(document).ready(function(){
 
         console.log(four)
         console.log(answer)
-        $('#choiceOne').one('submit', function() {
-            $(this).find('input[type="submit"]').attr('disabled','disabled');
-        });
-        $('#choiceTwo').one('submit', function() {
-            $(this).find('input[type="submit"]').attr('disabled','disabled');
-        });
-        $('#choiceThree').one('submit', function() {
-            $(this).find('input[type="submit"]').attr('disabled','disabled');
-        });
-        $('#choiceFour').one('submit', function() {
-            $(this).find('input[type="submit"]').attr('disabled','disabled');
-        });
-
+        
     })
         
-  
 })
 
 

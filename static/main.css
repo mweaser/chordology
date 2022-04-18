@@ -77,3 +77,25 @@
     margin: 20px;
     color: black;
 }
+
+#nn{
+    font-size: medium;
+    background-color: lightgray;
+    color: darkgrey;
+    margin-left: 800px;
+}
+
+#nextButton{
+
+}
+
+#rr{
+    font-size: medium;
+    background-color: lightgray;
+    color: darkgrey;
+    margin-left: 800px;
+}
+
+#resultsButton{
+
+}
