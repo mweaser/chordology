@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'background.js') }}"></script>
+
+<script>
+    let info = {{info|tojson}} 
+</script>
+
+
+<div class="row">
+    <div class = "title"></div>
+    <div class = "description"></div>
+    <div id="background-image" class="col-md-6">
+      <img src="/static/images/chord-a-major.png">
+    </div>
+    <div id="next_button" class="row row-border"></div>
+</div>
+
+{% endblock %}

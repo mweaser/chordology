@@ -74,6 +74,8 @@ function selectRightAnswer(){
 
 
 $(document).ready(function(){
+   
+    $("#correctIncorrect").text("")
     $("#nextButton").css('visibility', 'hidden');
     $("#resultsButton").css('visibility', 'hidden');
     
@@ -89,6 +91,7 @@ $(document).ready(function(){
     $("#choiceOne").click(function(){
         currentID += 1
         $("#nn").prop('href', "/quiz/" + currentID)
+        $("#rr").prop('href', "/quiz2")
         selectRightAnswer()
 
         $("#choiceOne").attr("disabled", true);
@@ -114,7 +117,7 @@ $(document).ready(function(){
 
         if (one == answer){
             $(this).css('background-color','green');
-
+            $("#correctIncorrect").text("Correct!")
             $("#ee").prop('href', "/quiz/" + chordNumber.id)
             let newPost = $("<button>")
             let inputString = chordNumber.choiceTwo
@@ -126,6 +129,7 @@ $(document).ready(function(){
         }
         else {
             $(this).css('background-color','red');
+            $("#correctIncorrect").text("Incorrect!")
         }
 
         console.log("one is " + one)
@@ -136,7 +140,7 @@ $(document).ready(function(){
     $("#choiceTwo").click(function(){
         currentID += 1
         $("#nn").prop('href', "/quiz/" + currentID)
-        $("#rr").prop('href', "/quiz/" + 1)
+        $("#rr").prop('href', "/quiz2")
         selectRightAnswer()
 
         $("#choiceOne").attr("disabled", true);
@@ -159,11 +163,12 @@ $(document).ready(function(){
 
         if (two == answer){
             $(this).css('background-color','green');
+            $("#correctIncorrect").text("Correct!")
             
         }
         else {
             $(this).css('background-color','red');
-            
+            $("#correctIncorrect").text("Incorrect!")
         }
 
         console.log("two is " + two)
@@ -175,6 +180,7 @@ $(document).ready(function(){
     $("#choiceThree").click(function(){
         currentID += 1
         $("#nn").prop('href', "/quiz/" + currentID)
+        $("#rr").prop('href', "/quiz2")
         selectRightAnswer()
 
         $("#choiceOne").attr("disabled", true);
@@ -196,9 +202,11 @@ $(document).ready(function(){
         }
 
         if (three == answer){
+            $("#correctIncorrect").text("Correct!")
             $(this).css('background-color','green');
         }
         else {
+            $("#correctIncorrect").text("Incorrect!")
             $(this).css('background-color','red');
         }
 
@@ -211,6 +219,7 @@ $(document).ready(function(){
     $("#choiceFour").click(function(){
         currentID += 1
         $("#nn").prop('href', "/quiz/" + currentID)
+        $("#rr").prop('href', "/quiz2")
         selectRightAnswer()
 
         $("#choiceOne").attr("disabled", true);
@@ -232,9 +241,11 @@ $(document).ready(function(){
         }
 
         if (four == answer){
+            $("#correctIncorrect").text("Correct!")
             $(this).css('background-color','green');
         }
         else {
+            $("#correctIncorrect").text("Incorrect!")
             $(this).css('background-color','red');
         }
 
@@ -242,8 +253,10 @@ $(document).ready(function(){
         console.log(answer)
         
     })
+
+
         
-})
+});
 
 
 

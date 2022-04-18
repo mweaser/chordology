@@ -11,81 +11,81 @@ app = Flask(__name__)
 
 current_id = 2
 
-# #CHORD DATA
-# data = [
-#     {
-#         "id": 1,
-#         "chord": "A",
-#         # "image":"",
-#         "layout": [
-#             [2, 1, 0, 0, 0, 1],
-#             [0, 0, 0, 0, 0, 0],
-#             [0, 0, 2, 1, 3, 0],
-#             [0, 0, 0, 0, 0, 0],
-#             [0, 0, 0, 0, 0, 0]
-#         ]
-#     },
-#     {
-#         "id": 2,
-#         "chord": "Em",
-#         "image":"",
-#         "layout": [
-#             [1, 0, 0, 1, 1, 1],
-#             [0, 0, 0, 0, 0, 0],
-#             [0, 1, 2, 0, 0, 0],
-#             [0, 0, 0, 0, 0, 0],
-#             [0, 0, 0, 0, 0, 0]
-#         ]
-#     },
-#     {
-#         "id": 3,
-#         "chord": "G"
-#         "image":"",
-#         "layout": [
-#             [0, 0, 1, 1, 1, 0],
-#             [0, 0, 0, 0, 0, 0],
-#             [0, 1, 0, 0, 0, 0],
-#             [2, 0, 0, 0, 0, 3],
-#             [0, 0, 0, 0, 0, 0]
-#         ]
-#     },
-#     {
-#         "id": 4,
-#         "chord": "D"
-#         "image":"",
-#         "layout": [
-#             [2, 2, 1, 0, 0, 0],
-#             [0, 0, 0, 0, 0, 0],
-#             [0, 0, 0, 1, 0, 2],
-#             [0, 0, 0, 0, 3, 0],
-#             [0, 0, 0, 0, 0, 0]
-#         ]
-#     },
-#     {
-#         "id": 5,
-#         "chord": "C"
-#         "image":"",
-#         "layout": [
-#             [2, 0, 0, 1, 0, 1],
-#             [0, 0, 0, 0, 1, 0],
-#             [0, 0, 2, 0, 0, 0],
-#             [0, 3, 0, 0, 0, 0],
-#             [0, 0, 0, 0, 0, 0]
-#         ]
-#     },
-#     {
-#         "id": 6,
-#         "chord": "Am"
-#         "image":"",
-#         "layout": [
-#             [2, 1, 0, 0, 0, 1],
-#             [0, 0, 0, 0, 1, 0],
-#             [0, 0, 2, 3, 0, 0],
-#             [0, 0, 0, 0, 0, 0],
-#             [0, 0, 0, 0, 0, 0]
-#         ]
-#     }
-# ]
+#CHORD DATA
+data = [
+    {
+        "id": 1,
+        "chord": "A",
+        "image":"",
+        "layout": [
+            [2, 1, 0, 0, 0, 1],
+            [0, 0, 0, 0, 0, 0],
+            [0, 0, 2, 1, 3, 0],
+            [0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0],
+        ]
+    },
+    {
+        "id": 2,
+        "chord": "Em",
+        "image":"",
+        "layout": [
+            [1, 0, 0, 1, 1, 1],
+            [0, 0, 0, 0, 0, 0],
+            [0, 1, 2, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0],
+        ]
+    },
+    {
+        "id": 3,
+        "chord": "G",
+        "image":"",
+        "layout": [
+            [0, 0, 1, 1, 1, 0],
+            [0, 0, 0, 0, 0, 0],
+            [0, 1, 0, 0, 0, 0],
+            [2, 0, 0, 0, 0, 3],
+            [0, 0, 0, 0, 0, 0]
+        ]
+    },
+    {
+        "id": 4,
+        "chord": "D",
+        "image":"",
+        "layout": [
+            [2, 2, 1, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 1, 0, 2],
+            [0, 0, 0, 0, 3, 0],
+            [0, 0, 0, 0, 0, 0]
+        ]
+    },
+    {
+        "id": 5,
+        "chord": "C",
+        "image":"",
+        "layout": [
+            [2, 0, 0, 1, 0, 1],
+            [0, 0, 0, 0, 1, 0],
+            [0, 0, 2, 0, 0, 0],
+            [0, 3, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0]
+        ]
+    },
+    {
+        "id": 6,
+        "chord": "Am",
+        "image":"",
+        "layout": [
+            [2, 1, 0, 0, 0, 1],
+            [0, 0, 0, 0, 1, 0],
+            [0, 0, 2, 3, 0, 0],
+            [0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0]
+        ]
+    }
+]
 
 #QUIZ DATA
 #counting ABCD as top-left, top-right, bottom-left, bottom-right
@@ -113,7 +113,36 @@ miniquiz = [
     }
 ]
 
-chords = {
+chords = ['A', 'Em', 'G', 'D', 'C', 'Am']
+chord_images = ['chord-a-major.png', 'chord-e-minor.png', 'chord-g-major.png', 'chord-d-major.png', 'chord-c-major.png', 'chord-a-minor.png']
+info = [
+    {
+        "id": 1,
+        "Title": "Guitar Anatomy",
+        "image" : "slide2.png",
+        "Description": "To understand chord diagrams, it's helpful to know a few basic parts of the guitar."
+    },
+     {
+        "id": 2,
+        "Title": "What is a chord diagram?",
+        "image" : "slide3.png",
+        "Description": "Chord diagrams represent an upright guitar in aquick schematic way. They're a quick tool to use when describing where you place your fingers in a given chord."
+    },
+    {
+        "id": 3,
+        "Title": "Open/Closed Strings",
+        "image" : "slide4.png",
+        "Description": "Strings that aren't pressed are designated as open- included in a strum - or closed - skipped when strumming."
+    },
+    {
+        "id": 4,
+        "Title": "Finger Placement",
+        "image" : "slide5.png",
+        "Description": "The dots on the chord diagram indicate which strings should be pressed down at each fret. To make it easy to place your fingers comfortably, the dots are numbered to indicate which finger should press at each location."
+    },
+]
+
+chordsMCQ = {
     1:
         {
         "id": 1,
@@ -185,20 +214,39 @@ chords = {
 print(chords)
 # ROUTES
 
-
 @app.route('/')
 def home():
    return render_template('home.html')
 
 
+
+@app.route('/learn')
+def learn_chords():
+   return render_template('learn_chords.html', chords=chords, chord_images=chord_images)
+
+@app.route('/background')
+def background():
+   return render_template('background.html', info =info)
+
 @app.route('/quiz/<id>')
 def quiz(id):
-   chordNumber = chords[int(id)]
-   return render_template('quiz.html', chordNumber = chordNumber, chords = chords)
+   chordNumber = chordsMCQ[int(id)]
+   return render_template('quiz.html', chordNumber = chordNumber, chords = chordsMCQ)
+
+@app.route('/quiz2')
+def quiz2():
+   return render_template('quiz2.html')
 
 
 # AJAX FUNCTIONS
-
+# @app.route('/mcquiz/<int:id>')
+# def mcquiz(id=0):
+#     global michelin
+#     for entry in michelin:
+#         if entry["id"] == id:
+#             return render_template('mcquiz.html', entry=entry, rest=None)
+#     else:
+#         return make_response(redirect("/"))
 
 
 

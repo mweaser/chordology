@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'learn_chords.js') }}"></script>
+
+<script>
+    let chords = {{chords|tojson}} 
+    let chord_images = {{chord_images|tojson}} 
+</script>
+
+<div id="button-row" class="row row-border"></div>
+<div class="row">
+    <div id="chord-image" class="col-md-6">
+        <img class="chord-image-style" src="/static/images/chord-a-major.png">
+    </div>
+</div>
+
+{% endblock %}
