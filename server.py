@@ -11,81 +11,81 @@ app = Flask(__name__)
 
 current_id = 2
 
-#CHORD DATA
-data = [
-    {
-        "id": 1,
-        "chord": "A",
-        "image":"",
-        "layout": [
-            [2, 1, 0, 0, 0, 1],
-            [0, 0, 0, 0, 0, 0],
-            [0, 0, 2, 1, 3, 0],
-            [0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0]
-        ]
-    },
-    {
-        "id": 2,
-        "chord": "Em",
-        "image":"",
-        "layout": [
-            [1, 0, 0, 1, 1, 1],
-            [0, 0, 0, 0, 0, 0],
-            [0, 1, 2, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0]
-        ]
-    },
-    {
-        "id": 3,
-        "chord": "G"
-        "image":"",
-        "layout": [
-            [0, 0, 1, 1, 1, 0],
-            [0, 0, 0, 0, 0, 0],
-            [0, 1, 0, 0, 0, 0],
-            [2, 0, 0, 0, 0, 3],
-            [0, 0, 0, 0, 0, 0]
-        ]
-    },
-    {
-        "id": 4,
-        "chord": "D"
-        "image":"",
-        "layout": [
-            [2, 2, 1, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 1, 0, 2],
-            [0, 0, 0, 0, 3, 0],
-            [0, 0, 0, 0, 0, 0]
-        ]
-    },
-    {
-        "id": 5,
-        "chord": "C"
-        "image":"",
-        "layout": [
-            [2, 0, 0, 1, 0, 1],
-            [0, 0, 0, 0, 1, 0],
-            [0, 0, 2, 0, 0, 0],
-            [0, 3, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0]
-        ]
-    },
-    {
-        "id": 6,
-        "chord": "Am"
-        "image":"",
-        "layout": [
-            [2, 1, 0, 0, 0, 1],
-            [0, 0, 0, 0, 1, 0],
-            [0, 0, 2, 3, 0, 0],
-            [0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0]
-        ]
-    }
-]
+# #CHORD DATA
+# data = [
+#     {
+#         "id": 1,
+#         "chord": "A",
+#         # "image":"",
+#         "layout": [
+#             [2, 1, 0, 0, 0, 1],
+#             [0, 0, 0, 0, 0, 0],
+#             [0, 0, 2, 1, 3, 0],
+#             [0, 0, 0, 0, 0, 0],
+#             [0, 0, 0, 0, 0, 0]
+#         ]
+#     },
+#     {
+#         "id": 2,
+#         "chord": "Em",
+#         "image":"",
+#         "layout": [
+#             [1, 0, 0, 1, 1, 1],
+#             [0, 0, 0, 0, 0, 0],
+#             [0, 1, 2, 0, 0, 0],
+#             [0, 0, 0, 0, 0, 0],
+#             [0, 0, 0, 0, 0, 0]
+#         ]
+#     },
+#     {
+#         "id": 3,
+#         "chord": "G"
+#         "image":"",
+#         "layout": [
+#             [0, 0, 1, 1, 1, 0],
+#             [0, 0, 0, 0, 0, 0],
+#             [0, 1, 0, 0, 0, 0],
+#             [2, 0, 0, 0, 0, 3],
+#             [0, 0, 0, 0, 0, 0]
+#         ]
+#     },
+#     {
+#         "id": 4,
+#         "chord": "D"
+#         "image":"",
+#         "layout": [
+#             [2, 2, 1, 0, 0, 0],
+#             [0, 0, 0, 0, 0, 0],
+#             [0, 0, 0, 1, 0, 2],
+#             [0, 0, 0, 0, 3, 0],
+#             [0, 0, 0, 0, 0, 0]
+#         ]
+#     },
+#     {
+#         "id": 5,
+#         "chord": "C"
+#         "image":"",
+#         "layout": [
+#             [2, 0, 0, 1, 0, 1],
+#             [0, 0, 0, 0, 1, 0],
+#             [0, 0, 2, 0, 0, 0],
+#             [0, 3, 0, 0, 0, 0],
+#             [0, 0, 0, 0, 0, 0]
+#         ]
+#     },
+#     {
+#         "id": 6,
+#         "chord": "Am"
+#         "image":"",
+#         "layout": [
+#             [2, 1, 0, 0, 0, 1],
+#             [0, 0, 0, 0, 1, 0],
+#             [0, 0, 2, 3, 0, 0],
+#             [0, 0, 0, 0, 0, 0],
+#             [0, 0, 0, 0, 0, 0]
+#         ]
+#     }
+# ]
 
 #QUIZ DATA
 #counting ABCD as top-left, top-right, bottom-left, bottom-right
@@ -113,7 +113,76 @@ miniquiz = [
     }
 ]
 
+chords = {
+    1:
+        {
+        "id": 1,
+        "choiceOne": "A",
+        "choiceTwo": "Em",
+        "choiceThree": "G",
+        "choiceFour": "D",
+        "answer": "Em",
+        "image": "https://chordbank.com/cb4dg/earthy_clo_1_750.png"
+        }
+    ,
+    2:
+        {
+        "id": 2,
+        "choiceOne": "A",
+        "choiceTwo": "Em",
+        "choiceThree": "G",
+        "choiceFour": "D",
+        "answer": "G",
+        "image": "https://chordbank.com/cb4dg/notable_cora_1_750.png"
+        }
+    ,
+    3:
+        {
+        "id": 3,
+        "choiceOne": "A",
+        "choiceTwo": "Em",
+        "choiceThree": "G",
+        "choiceFour": "D",
+        "answer": "D",
+        "image": "https://chordbank.com/cb4dg/acidic_mel_1_750.png"
+        }
+    ,
+    4:
+        {
+        "id": 4,
+        "choiceOne": "Am",
+        "choiceTwo": "A",
+        "choiceThree": "D",
+        "choiceFour": "G",
+        "answer": "A",
+        "image": "https://chordbank.com/cb4dg/artful_mae_1_750.png"
+        }
+    ,
+    5:
+        {
+        "id": 5,
+        "choiceOne": "Am",
+        "choiceTwo": "D",
+        "choiceThree": "C",
+        "choiceFour": "G",
+        "answer": "C",
+        "image": "https://chordbank.com/cb4dg/cagey_dani_1_750.png"
+        }
+    ,
+    6:
+        {
+        "id": 6,
+        "choiceOne": "G",
+        "choiceTwo": "A",
+        "choiceThree": "D",
+        "choiceFour": "Am",
+        "answer": "Am",
+        "image": "https://chordbank.com/cb4dg/artful_luigi_1_750.png"
+        }
+    ,
+    }
 
+print(chords)
 # ROUTES
 
 
@@ -124,33 +193,12 @@ def home():
 
 @app.route('/quiz')
 def quiz():
-   return render_template('quiz.html')
-
+   chordNumber = chords[1]
+   return render_template('quiz.html', chordNumber = chordNumber, chords = chords)
 
 
 # AJAX FUNCTIONS
 
-# ajax for people.js
-@app.route('/add_name', methods=['GET', 'POST'])
-def add_name():
-    global data
-    global current_id
-
-    json_data = request.get_json()
-    name = json_data["name"]
-
-    # add new entry to array with
-    # a new id and the name the user sent in JSON
-    current_id += 1
-    new_id = current_id
-    new_name_entry = {
-        "name": name,
-        "id":  current_id
-    }
-    data.append(new_name_entry)
-
-    #send back the WHOLE array of data, so the client can redisplay it
-    return jsonify(data = data)
 
 
 

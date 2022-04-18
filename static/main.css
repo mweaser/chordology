@@ -3,3 +3,77 @@
     padding-bottom:  10px;
     color: blue;
 }
+
+#image{
+    max-height:500px;
+    max-width:500px;
+    height:auto;
+    width:auto;  
+}
+
+#choiceOne{
+    font-size: medium;
+    background-color: white;
+    width: 200px;
+    height: 100px;
+
+    color: black;
+}
+
+#choiceTwo{
+    font-size: medium;
+    background-color: white;
+    width: 200px;
+    height: 100px;
+
+    color: black;
+}
+
+#choiceThree{
+    font-size: medium;
+    background-color: white;
+    width: 200px;
+    height: 100px;
+
+    color: black;
+}
+
+#choiceFour{
+    font-size: medium;
+    background-color: white;
+    width: 200px;
+    height: 100px;
+    color: black;
+}
+
+#identify{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#ee{
+    font-size: medium;
+    background-color: lightgray;
+    color: darkgrey;
+}
+
+#rowOne{
+    margin-top: 200px;
+}
+
+#rowTwo{
+    
+}
+
+#answerChoice{
+    font-size: medium;
+    background-color: white;
+    width: 200px;
+    height: 100px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    margin: 20px;
+    color: black;
+}

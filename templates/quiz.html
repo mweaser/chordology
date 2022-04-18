@@ -2,14 +2,62 @@
 
 {% block content %}
 
+    <head>
+        <script type="text/javascript" src="{{ url_for('static', filename = 'quiz.js') }}"></script>
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 
-    <script type="text/javascript" src="{{ url_for('static', filename = 'quiz.js') }}"></script>
+        <script>
+            let chordNumber = {{chordNumber|tojson}}
+            let chords = {{chords|tojson}} 
+        </script>
+
+    </head>
     
+    
+    <body id = "body">
+
+        <div id = "wholeTemplate">
+            <div class = "row">
+                <div id = "restartButton">
+                    <a id = "ee">Restart</a>
+                </div>      
+            </div>
+    
+            <div class = "row">
+                <div class = "col-6">
+                    <div id = "identify"> Identify this chord: </div>
+                    <div id = "image"></div>
+                </div>
+                <div class = "col-6">
+                    <div id = "rowOne"class = "row">
+                        
+                    </div>
+                    <div id = "rowTwo" class = "row">
+                        
+                    </div>                
+                </div>
+            </div>
 
 
-
-    <div>Quiz</div>
+        </div>
+    
+        <!-- {
+            "id": 1,
+            "choiceOne": "A",
+            "choiceTwo": "Em",
+            "choiceThree": "G",
+            "choiceFour": "D",
+            "answer": "Em",
+            "image": "/images/em_chord.png"
+            } -->
+    
+    
+    </body>
 
 
 
 {% endblock %}
+
