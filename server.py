@@ -113,6 +113,9 @@ miniquiz = [
     }
 ]
 
+chords = ['A', 'Em', 'G', 'D', 'C', 'Am']
+chord_images = ['chord-a-major.png', 'chord-e-minor.png', 'chord-g-major.png', 'chord-d-major.png', 'chord-c-major.png', 'chord-a-minor.png']
+
 
 # ROUTES
 
@@ -126,8 +129,9 @@ def home():
 def quiz():
    return render_template('quiz.html')
 
-
-
+@app.route('/learn')
+def learn_chords():
+   return render_template('learn_chords.html', chords=chords, chord_images=chord_images)
 
 # AJAX FUNCTIONS
 
