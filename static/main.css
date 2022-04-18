@@ -76,6 +76,17 @@
   margin-top: 10px;
 }
 
+.fixed_label{
+    position: absolute;
+    top: 50px;
+    left: 20px;
+}
+
+.fixed_question{
+    position: absolute;
+    top: 50px;
+    left: 450px;
+}
 #rowOne{
     margin-top: 200px;
 }

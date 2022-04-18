@@ -10,7 +10,7 @@ function createButtons(info, ct) {
       let entry = $("<div class='col-md-1'>")
       let desentry = $("<div class='col-md-8'>")
       let button =$("<button class='btn btn-outline-success'> </button>")
-      
+      // let button = $("<button>")
       
 
       if (value["id"] == count){
@@ -27,6 +27,9 @@ function createButtons(info, ct) {
     
       $(button).click(function() {
         console.log(count)
+        if (count == 4){
+          window.location.href = "/learn"
+        }
         count += 1
         createButtons(info, count)
      })

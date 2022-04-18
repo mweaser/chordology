@@ -163,38 +163,36 @@ function dragdrop(){
     $("#chordimage").droppable({
       drop: function( event, ui ) {
         name = ui.draggable.attr('data-name')
-        console.log(name)
         original = ui.draggable.parent().attr('id')
         if (original == "symb_ent"){
           let pos = $( name ).index( symbols )
           symbols.splice(pos,1)
-          
         //symbols.push(name)
         }
+        // makeNames(symbols)
         let newPosX = ui.offset.left - $(this).offset().left;
         let newPosY = ui.offset.top - $(this).offset().top;
-        console.log(newPosX)
-        console.log(newPosY)
+        
         let countx = 0
-        while (newPosX > 40){
-            newPosX -= 51
+        while (newPosX > 60){
+            newPosX -= 59
             countx += 1
         }
         // these coordinates are specific to the given graph
-        if ( (newPosY > 76 && newPosY < 117)){
-            droppedloc[countx+5] = name
+        if ( (newPosY > 64 && newPosY < 102)){
+            droppedloc[countx] = name
         }
-        if ( (newPosY > 171 && newPosY < 209)){
-            droppedloc[countx+10] = name
+        if ( (newPosY > 154 && newPosY < 187)){
+            droppedloc[countx+6] = name
         }
-        if ( (newPosY > 266 && newPosY < 301)){
-            droppedloc[countx+10] = name
+        if ( (newPosY > 245 && newPosY < 272)){
+            droppedloc[countx+12] = name
         }
-        if ( (newPosY > 171 && newPosY < 209)){
-            droppedloc[countx+10] = name
+        if ( (newPosY > 335 && newPosY < 360)){
+            droppedloc[countx+18] = name
         }
-        if ( (newPosY > 171 && newPosY < 209)){
-            droppedloc[countx+10] = name
+        if ( (newPosY > 425 && newPosY < 446)){
+            droppedloc[countx+24] = name
         }
         console.log(droppedloc)
         makeNames(symbols)
@@ -210,4 +208,5 @@ $(document).ready(function() {
     // maketoggle(toggles)
     dragdrop()
     togglebutton()
+    $("#ee").prop('href', "/quiz/" + 1)
 })
