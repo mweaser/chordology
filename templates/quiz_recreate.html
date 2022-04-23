@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <script type="text/javascript" src="{{ url_for('static', filename = 'quiz_recreate.js') }}"></script>
+    <div class="container">
+        <div id = "restartButton" class="row">
+            <a id = "ee">Restart</a>
+            <h6 class="col">
+                Correct: <span id="correct"> 0 </span><br>
+                Incorrect: <span id="incorrect"> 0 </span><br>
+                Remaining: <span id="remaining"> 0 </span><br>
+            </h6>
+        </div>  
+        <div style="margin-top: 50px" class="row">
+            <div class="col-md-5">
+                <div class = "row">
+                    <h4> Recreate the pattern for D. </h4>
+                    <p>
+                        Drag the numbers to the correct positions, and click open strings to toggle open/closed.
+                    </p>
+                </div>
+                <div id="symb_ent"></div> 
+            </div>
+            <div class="col-md-7">
+                <button class='togglebut btn btn-outline-success' id = "but0">O</button>
+                <button class='togglebut btn btn-outline-success' id = "but1">O</button>
+                <button class='togglebut btn btn-outline-success' id = "but2">O</button>
+                <button class='togglebut btn btn-outline-success' id = "but3">O</button>
+                <button class='togglebut btn btn-outline-success' id = "but4">O</button>
+                <button class='togglebut btn btn-outline-success' id = "but5">O</button>
+                <div>
+                    <img class="chord-board fixed_label" id ="chordimage" src="/static/images/blank-chord.png">
+                </div>
+            </div>
+        </div>
+        <!-- <div id="butt_label">
+                <div id="butt_ent"></div> 
+        </div>  -->
+        <!-- <div class = "row col-md-6">
+            Recreate the pattern for D.
+            <p>
+                Drag the numbers to the correct positions, and click open strings to toggle open/closed.
+            </p>
+        </div> -->
+
+        
+        <!-- <div  class="col-md-6">
+            <img  class="chord-board fixed_question" id ="chordimage" src="/static/images/dquestion.png">
+        </div> -->
+
+    </div>
+
+
+{% endblock %}

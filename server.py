@@ -218,7 +218,7 @@ def quiz(id):
 
 @app.route('/quiz2')
 def quiz2():
-   return render_template('quiz2.html')
+   return render_template('quiz_recreate.html')
 
 
 # AJAX FUNCTIONS

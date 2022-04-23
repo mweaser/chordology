@@ -200,6 +200,7 @@ function togglebutton() {
 function dragdrop(){
     // a 1d array of length 36 to represent the dropped location.
     let droppedloc = new Array(30)
+    let symbolLocs = new Array(3)
     $("#chordimage").droppable({
       drop: function( event, ui ) {
         name = ui.draggable.attr('data-name')
@@ -207,39 +208,53 @@ function dragdrop(){
         if (original == "symb_ent"){
           let pos = $( name ).index( symbols )
           symbols.splice(pos,1)
-        //symbols.push(name)
         }
         let newPosX = ui.offset.left - $(this).offset().left;
         let newPosY = ui.offset.top - $(this).offset().top;
-
-        console.log("Pos X -> " + newPosX)
-        console.log("Pos Y -> " + newPosY)
         
-        let countx = 0
-        while (newPosX > 60){
-            newPosX -= 59
-            countx += 1
+        let col = -1
+        if (newPosX <= -9) {
+            col = 0
+        }
+        else if (newPosX >=24 && newPosX <= 42) {
+            col = 1
+        }
+        else if (newPosX >=74 && newPosX <= 87) {
+            col = 2
+        }
+        else if (newPosX >= 121 && newPosX <= 136) {
+            col = 3
+        }
+        else if (newPosX >= 171 && newPosX <= 186) {
+            col = 4
+        }
+        else if (newPosX >= 222 && newPosX <= 235) {
+            col = 5
         }
 
-        console.log("Count X -> " + countx)
+        console.log("Column-> " + col)
+
+        let row = -1
+        if (newPosY >= 14 && newPosY <= 23) {
+            row = 0
+        }
+        else if (newPosY >= 81 && newPosY <= 91) {
+            row = 1
+        }
+        else if (newPosY >=149 && newPosY <= 159) {
+            row = 2
+        }
+        else if (newPosY >= 216 && newPosY <= 226) {
+            row = 3
+        }
+        else if (newPosY >= 283 && newPosY <= 293) {
+            row = 4
+        }
+
+        console.log("Row -> " + row)
         
-        // these coordinates are specific to the given graph
-        if ( (newPosY > 64 && newPosY < 102)){
-            droppedloc[countx] = name
-        }
-        if ( (newPosY > 154 && newPosY < 187)){
-            droppedloc[countx+6] = name
-        }
-        if ( (newPosY > 245 && newPosY < 272)){
-            droppedloc[countx+12] = name
-        }
-        if ( (newPosY > 335 && newPosY < 360)){
-            droppedloc[countx+18] = name
-        }
-        if ( (newPosY > 425 && newPosY < 446)){
-            droppedloc[countx+24] = name
-        }
-        console.log(droppedloc)
+        
+  
         //makeNames(symbols)
       },
       });
