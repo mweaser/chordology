@@ -22,16 +22,17 @@ function createButtons(info, ct) {
         $(".title").append(titleentry)
         $(".description").append(desentry)
         let images = value["images"]
+        let bodytext = value["body"]
         if(count == 1){
             bgentry.append("<div class='col-md-3'><img  src='/static/images/" + images[0] + "' height = '500'>")
-            bgentry.append("<div class='col-md-3' id='slide2-text1'>This is the neck of the guitar, where your fingers are going to be placed. The neck is made up of a series of frets, denoted by horizontal lines.")
+            bgentry.append("<div class='col-md-3' id='slide2-text1'>"+bodytext[0])
             bgentry.append("<div class='col-md-3 bgimages'><img  src='/static/images/" + images[1] + "' height = '500'>")
-            bgentry.append("<div class='col-md-3' id='slide2-text2'>The guitar also has six strings, which are tuned to the notes of  E A D G B E. <br><br> When you press your finger on a string at a fret, it alters the pitch of the string to a higher note, with each fret reaching a higher pitch.")
+            bgentry.append("<div class='col-md-3' id='slide2-text2'>"+bodytext[1])
             $("#bg-body").append(bgentry)
         }
         else if(count == 2){
             bgentry.append("<div class='col-md-7 bgimages'><img  src='/static/images/" + images[0] + "' height = '500'>")
-            bgentry.append("<div class='col-md-4' id='slide3-text'>Each horizontal line corresponds to the frets, starting from the top of the guitar. <br> <br> The vertical lines are strings, with the leftmost line corresponding to the leftmost string.")
+            bgentry.append("<div class='col-md-4' id='slide3-text'>"+bodytext[0])
             $("#bg-body").append(bgentry)
         }
         else if(count == 3 || count == 4){

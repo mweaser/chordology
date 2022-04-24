@@ -96,25 +96,33 @@ info = [
         "id": 1,
         "Title": "Guitar Anatomy",
         "images" : ["slide2-a.png", "slide2-b.png"],
-        "Description": "To understand chord diagrams, it's helpful to know a few basic parts of the guitar."
+        "Description": "To understand chord diagrams, it's helpful to know a few basic parts of the guitar.",
+        "body" : [
+            "This is the neck of the guitar, where your fingers are going to be placed. The neck is made up of a series of frets, denoted by horizontal lines.",
+            "The guitar also has six strings, which are tuned to the notes of  E A D G B E. <br><br> When you press your finger on a string at a fret, it alters the pitch of the string to a higher note, with each fret reaching a higher pitch."
+            ]
     },
      {
         "id": 2,
         "Title": "What is a chord diagram?",
         "images" : ["slide3.png"],
-        "Description": "Chord diagrams represent an upright guitar in aquick schematic way. They're a quick tool to use when describing where you place your fingers in a given chord."
+        "Description": "Chord diagrams represent an upright guitar in aquick schematic way. They're a quick tool to use when describing where you place your fingers in a given chord.",
+        "body" : ["Each horizontal line corresponds to the frets, starting from the top of the guitar. <br> <br> The vertical lines are strings, with the leftmost line corresponding to the leftmost string."]
+
     },
     {
         "id": 3,
         "Title": "Open/Closed Strings",
         "images" : ["slide4.png"],
-        "Description": "Strings that aren't pressed are designated as open- included in a strum - or closed - skipped when strumming."
+        "Description": "Strings that aren't pressed are designated as open- included in a strum - or closed - skipped when strumming.",
+        "body": [],
     },
     {
         "id": 4,
         "Title": "Finger Placement",
         "images" : ["slide5.png"],
-        "Description": "The dots on the chord diagram indicate which strings should be pressed down at each fret. To make it easy to place your fingers comfortably, the dots are numbered to indicate which finger should press at each location."
+        "Description": "The dots on the chord diagram indicate which strings should be pressed down at each fret. To make it easy to place your fingers comfortably, the dots are numbered to indicate which finger should press at each location.",
+        "body": [],
     },
 ]
 
