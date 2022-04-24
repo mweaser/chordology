@@ -60,7 +60,7 @@
   cursor: pointer;
   display: inline-block;
   font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 22px;
   font-weight: 500;
   line-height: 20px;
   list-style: none;
@@ -74,12 +74,14 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   margin-top: 10px;
+  width: 100px;
+  height: 40px;
 }
 
 .fixed_label{
     position: absolute;
-    top: 50px;
-    left: 20px;
+    top: 45px;
+    left: 31px;
 }
 
 .fixed_question{
@@ -175,6 +177,8 @@
     border-radius: 50%;
     text-align: center;
     padding-top: 5px;
+    position: relative;
+    z-index: 1;
 }
 
 .img-chord {
@@ -234,8 +238,8 @@
 
 .chord-board {
     margin-left: 2px;
-    width: 500px;
-    height: 500px;
+    width: 250px;
+    height: 350px;
 }
 
 .home {
@@ -282,4 +286,12 @@
 }
 .MC-incorrect{
     background-color: green
+}
+
+.togglebut {
+    width: 35px;
+    height: 35px;
+    padding: 0px;
+    font-size: 22px;
+    margin-left:8px;
 }
