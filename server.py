@@ -98,8 +98,8 @@ info = [
         "images" : ["slide2-a.png", "slide2-b.png"],
         "Description": "To understand chord diagrams, it's helpful to know a few basic parts of the guitar.",
         "body" : [
-            "This is the neck of the guitar, where your fingers are going to be placed. The neck is made up of a series of frets, denoted by horizontal lines.",
-            "The guitar also has six strings, which are tuned to the notes of  E A D G B E. <br><br> When you press your finger on a string at a fret, it alters the pitch of the string to a higher note, with each fret reaching a higher pitch."
+            "This is the neck of the guitar, where your fingers are going to be placed. The neck is made up of a series of <b>frets</b>, denoted by horizontal lines.",
+            "The guitar also has six strings, which are tuned to the notes of  <b>E A D G B E</b>. <br><br> When you press your finger on a string at a fret, it alters the pitch of the string to a higher note, with each fret reaching a higher pitch."
             ]
     },
      {
@@ -114,7 +114,7 @@ info = [
         "id": 3,
         "Title": "Open/Closed Strings",
         "images" : ["slide4.png"],
-        "Description": "Strings that aren't pressed are designated as open- included in a strum - or closed - skipped when strumming.",
+        "Description": "Strings that aren't pressed are designated as <b>open</b>—included in a strum-or <b>closed</b> - skipped when strumming.",
         "body": [],
     },
     {
