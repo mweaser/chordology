@@ -1,15 +1,18 @@
 function createButtons(info, ct) {
-  $(".title").empty()
-  $(".description").empty()
-  $(".background-image").empty()
-  $("#next_button").empty()
-  let count = ct
+      $(".title").empty()
+      $(".description").empty()
+      $("#bg-body").empty()
+      $("#next_button").empty()
+      let count = ct
 
   $.each(info, function(index,  value) {
       let titleentry = $("<div>")
 
       let desentry = $("<div>")
-      let button =$("<button class='btn btn-outline-success' value='Next' style='float: right;'> Next </button>")
+      let nextbutton =$("<button class='btn btn-outline-success' value='Next' style='float: right;'> Next </button>")
+      let prevbutton =$("<button class='btn btn-outline-success' value='Prev' style='float: right;'> Prev </button>")
+
+      let bgentry = $("<div class='row'>")
       let entry = $("<div class='col-md-1'>")
 
 
@@ -18,14 +21,33 @@ function createButtons(info, ct) {
         desentry.append(value["Description"])
         $(".title").append(titleentry)
         $(".description").append(desentry)
-        $("#background-image").html("<img  src='/static/images/" + value["image"] + "'>")
+        let images = value["images"]
+        let bodytext = value["body"]
+        if(count == 1){
+            bgentry.append("<div class='col-md-3'><img  src='/static/images/" + images[0] + "' height = '500'>")
+            bgentry.append("<div class='col-md-3' id='slide2-text1'>"+bodytext[0])
+            bgentry.append("<div class='col-md-3 bgimages'><img  src='/static/images/" + images[1] + "' height = '500'>")
+            bgentry.append("<div class='col-md-3' id='slide2-text2'>"+bodytext[1])
+            $("#bg-body").append(bgentry)
+        }
+        else if(count == 2){
+            bgentry.append("<div class='col-md-7 bgimages'><img  src='/static/images/" + images[0] + "' height = '500'>")
+            bgentry.append("<div class='col-md-4' id='slide3-text'>"+bodytext[0])
+            $("#bg-body").append(bgentry)
+        }
+        else if(count == 3 || count == 4){
+            bgentry.append("<div class='bgimages'><img  src='/static/images/" + images[0] + "' height = '300'>")
+            $("#bg-body").append(bgentry)
+        }
 
-        $("#button").text("Next")
-        entry.append(button)
-        $("#next_button").append(entry)
+        $("#next_button").append(nextbutton)
+        if(count>1){
+            $("#next_button").append(prevbutton)
+        }
       }
 
-      $(button).click(function() {
+
+      $(nextbutton).click(function() {
         if(count < 4){
             console.log(count)
             count += 1
@@ -34,9 +56,12 @@ function createButtons(info, ct) {
         else{
             window.location.replace("/background-quiz")
         }
-
-
      })
+     $(prevbutton).click(function() {
+       console.log(count)
+       count -= 1
+       createButtons(info, count)
+    })
 
   });
 }
