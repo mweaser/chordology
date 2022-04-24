@@ -95,29 +95,28 @@ info = [
     {
         "id": 1,
         "Title": "Guitar Anatomy",
-        "image" : "slide2.png",
+        "images" : ["slide2-a.png", "slide2-b.png"],
         "Description": "To understand chord diagrams, it's helpful to know a few basic parts of the guitar."
     },
      {
         "id": 2,
         "Title": "What is a chord diagram?",
-        "image" : "slide3.png",
+        "images" : ["slide3.png"],
         "Description": "Chord diagrams represent an upright guitar in aquick schematic way. They're a quick tool to use when describing where you place your fingers in a given chord."
     },
     {
         "id": 3,
         "Title": "Open/Closed Strings",
-        "image" : "slide4.png",
+        "images" : ["slide4.png"],
         "Description": "Strings that aren't pressed are designated as open- included in a strum - or closed - skipped when strumming."
     },
     {
         "id": 4,
         "Title": "Finger Placement",
-        "image" : "slide5.png",
+        "images" : ["slide5.png"],
         "Description": "The dots on the chord diagram indicate which strings should be pressed down at each fret. To make it easy to place your fingers comfortably, the dots are numbered to indicate which finger should press at each location."
     },
 ]
-
 
 chordsMCQ = {
     1:
