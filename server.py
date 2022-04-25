@@ -11,6 +11,10 @@ app = Flask(__name__)
 
 current_id = 2
 
+correct_count = 0
+incorrect_count = 0
+remaining_count = 10
+
 #CHORD DATA
 data = [
     {
@@ -23,6 +27,7 @@ data = [
             [0, 0, 2, 1, 3, 0],
             [0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0]
         ]
     },
     {
@@ -35,6 +40,7 @@ data = [
             [0, 1, 2, 0, 0, 0],
             [0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0]
         ]
     },
     {
@@ -46,6 +52,7 @@ data = [
             [0, 0, 0, 0, 0, 0],
             [0, 1, 0, 0, 0, 0],
             [2, 0, 0, 0, 0, 3],
+            [0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0]
         ]
     },
@@ -58,6 +65,7 @@ data = [
             [0, 0, 0, 0, 0, 0],
             [0, 0, 0, 1, 0, 2],
             [0, 0, 0, 0, 3, 0],
+            [0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0]
         ]
     },
@@ -70,6 +78,7 @@ data = [
             [0, 0, 0, 0, 1, 0],
             [0, 0, 2, 0, 0, 0],
             [0, 3, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0]
         ]
     },
@@ -81,6 +90,7 @@ data = [
             [2, 1, 0, 0, 0, 1],
             [0, 0, 0, 0, 1, 0],
             [0, 0, 2, 3, 0, 0],
+            [0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0]
         ]
@@ -202,11 +212,9 @@ print(chords)
 def home():
    return render_template('home.html')
 
-
-
 @app.route('/learn')
 def learn_chords():
-   return render_template('learn_chords.html', chords=chords, chord_images=chord_images)
+   return render_template('learn_chords.html', chords=chords, chord_images=chord_images, data = data)
 
 @app.route('/background-quiz')
 def miniquiz():
@@ -223,9 +231,9 @@ def quiz(id):
    chordNumber = chordsMCQ[int(id)]
    return render_template('quiz.html', chordNumber = chordNumber, chords = chordsMCQ)
 
-@app.route('/quiz2')
-def quiz2():
-   return render_template('quiz_recreate.html')
+@app.route('/quiz-recreate/<id>')
+def quizRecreate(id):
+   return render_template('quiz_recreate.html', data=data[int(id)-1], id=int(id), correct_count=correct_count, incorrect_count=incorrect_count, remaining_count=remaining_count)
 
 
 # AJAX FUNCTIONS
@@ -239,6 +247,21 @@ def quiz2():
 #         return make_response(redirect("/"))
 
 
+
+# ajax for saving sell
+@app.route('/quiz-recreate/update_counts', methods=['GET', 'POST'])
+def update_counts():
+    global correct_count
+    global incorrect_count
+    global remaining_count
+
+    values = request.get_json()   
+    correct_count = values['correct']
+    incorrect_count = values['incorrect']
+    remaining_count = values['remaining']
+
+    #send back the WHOLE array of data, so the client can redisplay it
+    return jsonify(correct_count=correct_count)
 
 @app.route('/mcquiz/<int:id>')
 def mcquiz(id=0):

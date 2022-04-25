@@ -75,7 +75,7 @@ function selectRightAnswer(){
 $(document).ready(function(){
    
     $("#correctIncorrect").text("")
-    $("#nextButton").css('visibility', 'hidden');
+    // $("#nextButton").css('visibility', 'hidden');
     $("#resultsButton").css('visibility', 'hidden');
     
     loadChords(chordNumber)
@@ -90,7 +90,7 @@ $(document).ready(function(){
     $("#choiceOne").click(function(){
         currentID += 1
         $("#nn").prop('href', "/quiz/" + currentID)
-        $("#rr").prop('href', "/quiz2")
+        $("#rr").prop('href', "/quiz-recreate/1")
         selectRightAnswer()
 
         $("#choiceOne").attr("disabled", true);
@@ -139,7 +139,7 @@ $(document).ready(function(){
     $("#choiceTwo").click(function(){
         currentID += 1
         $("#nn").prop('href', "/quiz/" + currentID)
-        $("#rr").prop('href', "/quiz2")
+        $("#rr").prop('href', "/quiz-recreate/1")
         selectRightAnswer()
 
         $("#choiceOne").attr("disabled", true);
@@ -179,7 +179,7 @@ $(document).ready(function(){
     $("#choiceThree").click(function(){
         currentID += 1
         $("#nn").prop('href', "/quiz/" + currentID)
-        $("#rr").prop('href', "/quiz2")
+        $("#rr").prop('href', "/quiz-recreate/1")
         selectRightAnswer()
 
         $("#choiceOne").attr("disabled", true);
@@ -218,7 +218,7 @@ $(document).ready(function(){
     $("#choiceFour").click(function(){
         currentID += 1
         $("#nn").prop('href', "/quiz/" + currentID)
-        $("#rr").prop('href', "/quiz2")
+        $("#rr").prop('href', "/quiz-recreate/1")
         selectRightAnswer()
 
         $("#choiceOne").attr("disabled", true);
