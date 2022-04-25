@@ -1,8 +1,9 @@
-let symbols = [
+let symbols_OG = [
     "1",
     "2",
     "3",
 ]
+let symbols = symbols_OG
 let toggles = [
     {
         "id": "but0",
@@ -26,7 +27,9 @@ let toggles = [
     }
 ]
 
-
+var CLICKED = "A"; 
+let TOGGLERES;     
+let droppedarray;
 
 function createButtons(chords, chord_images) {
     $("#button-row").empty()
@@ -39,7 +42,19 @@ function createButtons(chords, chord_images) {
         $("#button-row").append(entry)
 
         $(button).click(function() {
+            CLICKED = chords[index]
             $("#chord-image").html("<img class='chord-image-style' src='/static/images/" + chord_images[index] + "'>")
+            TOGGLERES = new Array(6)
+            droppedarray = new Array(30).fill(0);
+            let symbols = symbols_OG
+            makeNames(symbols)
+            $("#but0").text("O")
+            $("#but1").text("O")
+            $("#but2").text("O")
+            $("#but3").text("O")
+            $("#but4").text("O")
+            $("#but5").text("O")
+            togglebutton()
         })
     });
 }
@@ -69,6 +84,7 @@ function makeNames(symbolsentry){
         revert: 'invalid',
         });
     }
+
 
 
 function togglebutton() {
@@ -170,6 +186,7 @@ function togglebutton() {
             console.log(toggleloc)
         }; 
     });
+    TOGGLERES = toggleloc
     return toggleloc
 }
 
@@ -183,9 +200,10 @@ window.onload = function () {
     }, 100);
 }
 
-function dragdrop(chords){
+function dragdrop(chords, chord_images, data){
     // a 1d array of length 36 to represent the dropped location.
-    let droppedloc = new Array(30)
+    let droppedloc = new Array(30).fill(0);
+    // let entirearr = $.merge( TOGGLERES, droppedloc )
     $("#chordimage_learn").droppable({
       drop: function( event, ui ) {
         name = ui.draggable.attr('data-name')
@@ -197,51 +215,92 @@ function dragdrop(chords){
         }
         let newPosX = ui.offset.left - $(this).offset().left;
         let newPosY = ui.offset.top - $(this).offset().top;
-
-        console.log("Pos X -> " + newPosX)
-        console.log("Pos Y -> " + newPosY)
-        
         let countx = 0
-        while (newPosX > 60){
-            newPosX -= 59
+        while (newPosX > -17){
+            newPosX -= 48
             countx += 1
         }
 
-        console.log("Count X -> " + countx)
         
         // these coordinates are specific to the given graph
-        if ( (newPosY > 64 && newPosY < 102)){
-            droppedloc[countx] = name
+        if ( (newPosY > 14 && newPosY < 29)){
+            droppedloc[countx] = parseInt(name)
         }
-        if ( (newPosY > 154 && newPosY < 187)){
-            droppedloc[countx+6] = name
+        if ( (newPosY > 80 && newPosY < 96)){
+            droppedloc[countx+5] = parseInt(name)
         }
-        if ( (newPosY > 245 && newPosY < 272)){
-            droppedloc[countx+12] = name
+        if ( (newPosY > 148 && newPosY < 164)){
+            droppedloc[countx+11] = parseInt(name)
         }
-        if ( (newPosY > 335 && newPosY < 360)){
-            droppedloc[countx+18] = name
+        if ( (newPosY > 213 && newPosY < 229)){
+            droppedloc[countx+17] = parseInt(name)
         }
-        if ( (newPosY > 425 && newPosY < 446)){
-            droppedloc[countx+24] = name
+        if ( (newPosY > 282 && newPosY < 300)){
+            droppedloc[countx+23] = parseInt(name)
         }
         console.log(droppedloc)
-        //makeNames(symbols)
-
-        $("#check_but").click(function() { 
-            
-        });
-
-
+        droppedarray = droppedloc
+       
       },
       });
   }
   
 
+function checkhelper(index, droppedarr){
+    let entirearr = $.merge( TOGGLERES, droppedarr )
+    console.log(entirearr)
+    let flatArray = [].concat.apply([], data[index]["layout"]); 
+    console.log(flatArray)
+    if (entirearr.every((v,i)=> v === flatArray[i])){
+        console.log("yes")
+        showcorrect()
+    }
+    else{
+        console.log("no")
+        showincorrect()
+    }
+    
+}
+
+function check(data, droppedarr){
+    if (CLICKED == "A"){
+        checkhelper(0, droppedarr)
+    }
+    else if (CLICKED == "Em"){
+        checkhelper(1, droppedarr)
+    }
+    else if (CLICKED == "G"){
+        checkhelper(2, droppedarr)
+    }
+    else if (CLICKED == "D"){
+        checkhelper(3, droppedarr)
+    }
+    else if (CLICKED == "C"){
+        checkhelper(4, droppedarr)
+    }
+    else if (CLICKED == "Am"){
+        checkhelper(5, droppedarr)
+    }
+}
+
+function showcorrect(){
+    let entry = $("<div></div>")
+    entry.text("CORRECT!")
+    $("#learning-correct-text").html(entry)
+}
+function showincorrect(){
+    let entry = $("<div></div>")
+    entry.text("INCORRECT!")
+    $("#learning-incorrect-text").html(entry)
+}
+
 $(document).ready(function(){
-    createButtons(chords, chord_images)
-    // console.log(chords[0])
+    createButtons(chords, chord_images, symbols)
+    
     makeNames(symbols)
-    dragdrop(chords)
+    dragdrop(chords, chord_images, data)
     togglebutton()
+    $("#check_but").click(function() { 
+        check(data, droppedarray)
+    });  
 })
