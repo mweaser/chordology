@@ -7,4 +7,6 @@ $(document).ready(function() {
         window.location.replace('http://127.0.0.1:5000/quiz/1')
 
     })
+    $(".navbar").hide()
+    $(".bodycolor").css("background-color", "#3d405b");
 })

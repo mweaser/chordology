@@ -9,9 +9,9 @@ function createButtons(info, ct) {
       let titleentry = $("<div>")
 
       let desentry = $("<div>")
-      let nextbutton =$("<button class='btn btn-outline-success bgnav' value='Next' style='float: right;'> Next </button>")
-      let prevbutton =$("<button class='btn btn-outline-success bgnav' value='Prev' style='float: right;'> Prev </button>")
-      let quizbutton =$("<button class='btn btn-outline-success bgnav' value='Quiz' style='float: right;'> Test Yourself </button>")
+      let nextbutton =$("<button class='btn bgnav' value='Next' style='float: right;'> Next </button>")
+      let prevbutton =$("<button class='btn bgnav' value='Prev' style='float: right;'> Prev </button>")
+      let quizbutton =$("<button class='btn bgnav' value='Quiz' style='float: right;'> Test Yourself </button>")
       let bgentry = $("<div class='row'>")
       let entry = $("<div class='col-md-1'>")
 
