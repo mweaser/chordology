@@ -3,8 +3,10 @@
 {% block content %}
 
 <script type="text/javascript" src="{{ url_for('static', filename = 'home.js') }}"></script>
+<img id="homeimg" src="../static/images/homebg.png"/>
 
 <div class="home">
+
     <div class="home-header">Chordology</div>
     <div>
         Chords are an important fundamental <br>
@@ -13,10 +15,11 @@
         some basic chords, and test your <br>
         newfound knowledge!
     </div>
-    <div>
+    <div id="homebuttons">
         <button id="start-learning" class="home-button">Start Learning</button>
         <button id="test-yourself" class="home-button">Test Yourself!</button>
     </div>
+
 </div>
 
 {% endblock %}
