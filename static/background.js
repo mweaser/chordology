@@ -9,9 +9,9 @@ function createButtons(info, ct) {
       let titleentry = $("<div>")
 
       let desentry = $("<div>")
-      let nextbutton =$("<button class='btn btn-outline-success' value='Next' style='float: right;'> Next </button>")
-      let prevbutton =$("<button class='btn btn-outline-success' value='Prev' style='float: right;'> Prev </button>")
-
+      let nextbutton =$("<button class='btn btn-outline-success bgnav' value='Next' style='float: right;'> Next </button>")
+      let prevbutton =$("<button class='btn btn-outline-success bgnav' value='Prev' style='float: right;'> Prev </button>")
+      let quizbutton =$("<button class='btn btn-outline-success bgnav' value='Quiz' style='float: right;'> Test Yourself </button>")
       let bgentry = $("<div class='row'>")
       let entry = $("<div class='col-md-1'>")
 
@@ -36,31 +36,34 @@ function createButtons(info, ct) {
             $("#bg-body").append(bgentry)
         }
         else if(count == 3 || count == 4){
-            bgentry.append("<div class='bgimages'><img  src='/static/images/" + images[0] + "' height = '300'>")
+            bgentry.append("<div class='bgimages col-md-12'><img src='/static/images/" + images[0] + "' height = '400'>")
             $("#bg-body").append(bgentry)
         }
-
-        $("#next_button").append(nextbutton)
+        if(count < 4){
+            $("#next_button").append(nextbutton)
+        }
+        if(count == 4){
+            $("#next_button").append(quizbutton)
+        }
         if(count>1){
             $("#next_button").append(prevbutton)
         }
+
       }
 
 
       $(nextbutton).click(function() {
-        if(count < 4){
-            console.log(count)
-            count += 1
-            createButtons(info, count)
-        }
-        else{
-            window.location.replace("/background-quiz")
-        }
+        console.log(count)
+        count += 1
+        createButtons(info, count)
      })
      $(prevbutton).click(function() {
        console.log(count)
        count -= 1
        createButtons(info, count)
+    })
+    $(quizbutton).click(function() {
+      window.location.replace("/background-quiz")
     })
 
   });

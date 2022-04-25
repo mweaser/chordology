@@ -370,6 +370,19 @@
     margin-top: 150px;
 }
 
+#bg-body{
+    height: 500px;
+}
+.bgnav{
+    margin-left: 10px;
+}
+.qnumber{
+    width: 500px;
+}
+.button-row{
+    float: right;
+}
+
 #recreate-correct-text {
     font-size: 30px;
     position: absolute;
