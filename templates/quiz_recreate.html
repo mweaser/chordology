@@ -2,26 +2,35 @@
 
 {% block content %}
     <script type="text/javascript" src="{{ url_for('static', filename = 'quiz_recreate.js') }}"></script>
+
+    <script>
+        let data = {{data|tojson}}
+        let id = {{id|tojson}}
+        let correct_count = {{correct_count|tojson}}
+        let incorrect_count = {{incorrect_count|tojson}}
+        let remaining_count = {{remaining_count|tojson}}
+    </script>
+
     <div class="container">
         <div id = "restartButton" class="row">
             <a id = "ee">Restart</a>
             <h6 class="col">
-                Correct: <span id="correct"> 0 </span><br>
-                Incorrect: <span id="incorrect"> 0 </span><br>
-                Remaining: <span id="remaining"> 0 </span><br>
+                Correct: <span id="correct"></span><br>
+                Incorrect: <span id="incorrect"></span><br>
+                Remaining: <span id="remaining"></span><br>
             </h6>
         </div>
         <div style="margin-top: 50px" class="row">
             <div class="col-md-5">
                 <div class = "row">
-                    <h4> Recreate the pattern for D. </h4>
+                    <h4 id="pattern-choice"></h4>
                     <p>
                         Drag the numbers to the correct positions, and click open strings to toggle open/closed.
                     </p>
                 </div>
                 <div id="symb_ent"></div>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-4">
                 <button class='togglebut btn btn-outline-success' id = "but0">O</button>
                 <button class='togglebut btn btn-outline-success' id = "but1">O</button>
                 <button class='togglebut btn btn-outline-success' id = "but2">O</button>
@@ -30,6 +39,12 @@
                 <button class='togglebut btn btn-outline-success' id = "but5">O</button>
                 <div>
                     <img class="chord-board fixed_label" id ="chordimage" src="/static/images/blank-chord.png">
+                </div>
+                <div id="recreate-correct-text" ></div>
+            </div>
+            <div class="col-md-3">
+                <div id = "nextButton" class = "row">
+                    <a id = "nn">Next Question</a>
                 </div>
             </div>
         </div>

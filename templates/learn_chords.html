@@ -7,15 +7,75 @@
 <script>
     let chords = {{chords|tojson}} 
     let chord_images = {{chord_images|tojson}} 
+    let data = {{data|tojson}}
 </script>
 
-<div id="button-row" class="row row-border"></div>
+<div class = "container">
+    <div class="row">
+    <div id="button-row" class="row row-border"></div>
 
-<div class="row">
-    <div id="chord-image" class="col-md-6">
-        <img class="chord-image-style" src="/static/images/chord-a-major.png">
+    <div class="row col-md-6">
+        <div id="chord-image" class="col-md-6">
+            <img class="chord-image-style" src="/static/images/chord-a-major.png">
+        </div>
     </div>
 
-</div>
+    
+    <div id="ac-wrapper" style='display:inline'>
+            <div class = "container" id="popup">
+                <center>
+                    <h2>Watch the following tutorial for instructions</h2>
+                    <img  class="animated-gif" id="chord-tutorial" src="/static/images/draggabletutorial.gif">
+                    <input type="submit" name="Close" value="Close" onClick="PopUp('hide')" />
+                </center>
+            </div>
+    </div>
 
+
+    <div class="row col-md-6">
+        <div class="container">
+            <!-- <div id = "restartButton">
+                <a id = "ee">Restart</a>
+            </div>   -->
+
+            <div id="recreate_msg"> Recreate the pattern for the given chord.</div>
+            <p>
+                Drag the numbers to the correct positions, and click open strings to toggle open/closed.
+            </p>
+            <div id="symbols"></div>
+            <div id="all-chords"></div>
+            <div id="symbol_label" class="ui-widget-content col-md-6">
+                <div id="symb_ent"></div> 
+            </div> 
+            <br>
+        </div>
+        
+        
+       
+        <div class="row">
+            <div class = "container">
+                <button class='togglebut_learn btn btn-outline-success' id = "but0">O</button>
+                <button class='togglebut_learn btn btn-outline-success' id = "but1">O</button>
+                <button class='togglebut_learn btn btn-outline-success' id = "but2">O</button>
+                <button class='togglebut_learn btn btn-outline-success' id = "but3">O</button>
+                <button class='togglebut_learn btn btn-outline-success' id = "but4">O</button>
+                <button class='togglebut_learn btn btn-outline-success' id = "but5">O</button>
+            </div>
+            <!-- <div id="butt_label">
+                    <div id="butt_ent"></div> 
+            </div>  -->
+            <div  class="row col-md-12">
+                <img  class="chord-board_learn" id ="chordimage_learn" src="/static/images/blank-chord.png">
+            </div>
+            <!-- <div id = "check">
+                <a id = "check_but">Check</a>
+            </div>   -->
+            <button class='check btn btn-outline-success' id = "check_but">Check</button>
+            <br> 
+            <div id = "learning-correct-text"></div>
+            <div id = "learning-incorrect-text"></div>
+        </div>
+    </div>
+</div>
+</div>
 {% endblock %}

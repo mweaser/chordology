@@ -26,6 +26,12 @@ let toggles = [
     }
 ]
 
+let toggleloc = new Array(6)
+
+let draggable_symbols = []
+
+let alreadyChecked = false;
+
 function emprow(index, symbol){
     let entry = $("<div></div>")
     entry.html(symbol)
@@ -36,67 +42,23 @@ function emprow(index, symbol){
     return entry
   }
 
-// function togrow(index, toggle, id){
-//     let entry = $("<div></div>")
-//     entry.html(toggle)
-//     entry.addClass("btn")
-//     entry.addClass("togglebut")
-//     entry.addClass("btn-outline-success")
-//     entry.addClass("symbol_entry")
-//     entry.attr("id",id)
-//     return entry
-// }
-// function maketoggle(togglesentry){
-//     $("#butt_ent").empty()
-//     $.each(["#butt_ent"], function(index, value){
-//         let allist = [togglesentry][index]
-//         // console.log(allist)
-//         $.each(allist, function(ind, sym){
-//         let newsym = emprow(ind, sym)
-//         $(value).append(newsym)
-//         })
-//     });
-// }
-
-function makeNames(symbolsentry){
-$("#symb_ent").empty()
-$.each(["#symb_ent"], function(index, value){
-    let allist = [symbolsentry][index]
-    $.each(allist, function(ind, sym){
-    let newsym = emprow(ind, sym)
-    $(value).append(newsym)
-    })
-});
-$(".symbol_entry").draggable({ 
-    revert: 'invalid',
+function makeNames(symbolsentry, droppable_symbols){
+    $("#symb_ent").empty()
+    $.each(["#symb_ent"], function(index, value){
+        let allist = [symbolsentry][index]
+        $.each(allist, function(ind, sym){
+        let newsym = emprow(ind, sym)
+        $(value).append(newsym)
+        draggable_symbols.push(newsym)
+        })
     });
+    $(".symbol_entry").draggable({ 
+        revert: 'invalid',
+        });
 }
   
-// function makesymbol(){
-//     let symbol = $("<div class='symbol-style ui-widget-content'>")
-//     symbol.draggable();
-//     $(symbol).html('<div>X</div>')
-//     $("#symbols").append(symbol)
-// }
-
-// function makeDroppableSpots() {
-//     let chordLoc = $("<div class='chord-loc-style'>")
-//     // $(chordLoc)[0].style('top', '800')
-//     // console.log(chordLoc[0].classList)
-//     chordLoc.droppable({ 
-//         drop: function( event, ui ) {
-//             let value = $(ui.draggable)
-//             // Get dropped name
-//             console.log(value) 
-//         }
-//     });
-//     $("#all-chords").append(chordLoc)
-// }
-
-
 function togglebutton() {
     // a 1d array of length 6 to represent the toggle setting
-    let toggleloc = new Array(6)
     for (let i = 0; i < toggleloc.length; i++) {
         toggleloc[i] = 1;
     }
@@ -197,14 +159,16 @@ function togglebutton() {
 }
 
 
-function dragdrop(){
+function dragdrop(draggable_symbols){
     // a 1d array of length 36 to represent the dropped location.
     let droppedloc = new Array(30)
-    let symbolLocs = new Array(3)
+    let symbol_rows = [-1, -1, -1]
+    let symbol_cols = [-1, -1, -1]
     $("#chordimage").droppable({
       drop: function( event, ui ) {
         name = ui.draggable.attr('data-name')
         original = ui.draggable.parent().attr('id')
+   
         if (original == "symb_ent"){
           let pos = $( name ).index( symbols )
           symbols.splice(pos,1)
@@ -232,8 +196,6 @@ function dragdrop(){
             col = 5
         }
 
-        console.log("Column-> " + col)
-
         let row = -1
         if (newPosY >= 14 && newPosY <= 23) {
             row = 0
@@ -251,22 +213,124 @@ function dragdrop(){
             row = 4
         }
 
-        console.log("Row -> " + row)
-        
-        
-  
-        //makeNames(symbols)
+        if (name == "1") {
+            symbol_rows[0] = row
+            symbol_cols[0] = col
+        }
+        else if (name == "2") {
+            symbol_rows[1] = row
+            symbol_cols[1] = col
+        }
+        else {
+            symbol_rows[2] = row
+            symbol_cols[2] = col
+        }
+
+        if (symbol_rows.includes(-1) == false && symbol_cols.includes(-1) == false) {
+            check_correct(symbol_rows, symbol_cols)
+        } 
       },
       });
   }
 
+function check_correct(rows, cols) {
+    if (alreadyChecked == true) {
+        return;
+    }
+
+    alreadyChecked = true;
+    firstCorrect = false;
+    secondCorrect = false;
+    thirdCorrect = false;
+    toggleCorrect = true;
+
+    // Check if first symbol in correct spot
+    if (data["layout"][rows[0]+1][cols[0]] == 1) {
+        draggable_symbols[0].css('background-color', 'green')
+        firstCorrect = true;
+    }
+
+    // Check if second symbol in correct spot
+    if (data["layout"][rows[1]+1][cols[1]] == 2) {
+        draggable_symbols[1].css('background-color', 'green')
+        secondCorrect = true;
+    }
+
+    // Check if third symbol in correct spot
+    if (data["layout"][rows[2]+1][cols[2]] == 3) {
+        draggable_symbols[2].css('background-color', 'green')
+        thirdCorrect = true;
+    }
+
+    // Check if toggle buttons are right
+    for (let i = 0; i < toggleloc.length; i++) {
+        if (toggleloc[i] != data["layout"][0][i]) {
+            toggleCorrect = false;
+            break;
+        }
+    }
+
+    if (firstCorrect && secondCorrect && thirdCorrect && toggleCorrect) {
+        let entry = $("<div></div>")
+        entry.text("CORRECT!")
+        $("#recreate-correct-text").html(entry)
+        correct_count += 1
+        remaining_count -= 1
+        $("#correct").text(correct_count)
+        $("#remaining").text(remaining_count)
+        $("#nextButton").css('visibility', 'visible');
+    }
+    else {
+        let entry = $("<div></div>")
+        entry.text("INCORRECT!")
+        $("#recreate-correct-text").html(entry)
+        incorrect_count += 1
+        remaining_count -= 1
+        $("#incorrect").text(incorrect_count)
+        $("#remaining").text(remaining_count)
+        $("#nextButton").css('visibility', 'visible');
+    }
+
+    // Update the correct, incorrect and remaining on the server side
+    update_counts();
+}
+
+function update_counts() {
+    $.ajax({
+        type: "POST",
+        url: "update_counts",                
+        dataType : "json",
+        contentType: "application/json; charset=utf-8",
+        data : JSON.stringify({correct: correct_count, incorrect: incorrect_count, remaining: remaining_count}),
+        success: function(result){
+            console.log("Sucessfully updated counts on server");
+        },
+        error: function(request, status, error){
+            console.log("Error");
+            console.log(request)
+            console.log(status)
+            console.log(error)
+        }
+    });
+}
+
+
+
 
 $(document).ready(function() {
-    // makesymbol()
-    makeNames(symbols)
-    // makeDroppableSpots()
-    // maketoggle(toggles)
-    dragdrop()
+    $("#correct").text(correct_count)
+    $("#incorrect").text(incorrect_count)
+    $("#remaining").text(remaining_count)
+    $("#pattern-choice").text("Recreate the pattern for " + data["chord"] + ".")
+    $("#nn").css('margin-left', '0px');
+    makeNames(symbols, draggable_symbols)
     togglebutton()
+    dragdrop(draggable_symbols)
     $("#ee").prop('href', "/quiz/" + 1)
+    if (id < 4) {
+        $("#nn").prop('href', "/quiz-recreate/" + (id + 1))
+    }
+    else {
+        $("#nn").prop('href', "/quiz-results")
+    }
 })
