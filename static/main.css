@@ -136,7 +136,7 @@
 }
 
 #nextButton{
-
+    visibility: hidden;
 }
 
 #rr{
@@ -164,7 +164,7 @@
 }
 
 #resultsButton{
-
+    visibility: hidden;
 }
 
 #quizNav{
@@ -338,6 +338,13 @@
 }
 #slide3-text{
     margin-top: 150px;
+}
+
+#recreate-correct-text {
+    font-size: 30px;
+    position: absolute;
+    top: 400px;
+    left: 50px;
 }
 
 
