@@ -8,4 +8,5 @@ $(document).ready(function() {
 
     })
     $(".navbar").hide()
+    $(".bodycolor").css("background-color", "#3d405b");
 })
