@@ -60,7 +60,7 @@
   cursor: pointer;
   display: inline-block;
   font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 22px;
+  font-size: 14px;
   font-weight: 500;
   line-height: 20px;
   list-style: none;
@@ -74,42 +74,13 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   margin-top: 10px;
-  width: 100px;
-  height: 40px;
-}
-
-#check_but {
-    background-color:grey;
-    border-radius: 8px;
-    border-width: 0;
-    color: blue;
-    cursor: pointer;
-    display: inline-block;
-    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 22px;
-    font-weight: 500;
-    line-height: 20px;
-    list-style: none;
-    margin: 0;
-    padding: 10px 12px;
-    text-align: center;
-    transition: all 200ms;
-    vertical-align: baseline;
-    white-space: nowrap;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    margin-top: 10px;
-    width: 100px;
-    height: 40px;
 }
 
 .fixed_label{
     position: absolute;
-    top: 45px;
-    left: 31px;
+    top: 50px;
+    left: 20px;
 }
-
 
 .fixed_question{
     position: absolute;
@@ -162,7 +133,7 @@
 }
 
 #nextButton{
-    visibility: hidden;
+
 }
 
 #rr{
@@ -190,7 +161,7 @@
 }
 
 #resultsButton{
-    visibility: hidden;
+
 }
 
 #quizNav{
@@ -204,8 +175,6 @@
     border-radius: 50%;
     text-align: center;
     padding-top: 5px;
-    position: relative;
-    z-index: 1;
 }
 
 .img-chord {
@@ -233,17 +202,6 @@
     max-width: 100%;
     display: block;
     margin: auto;
-}
-
-
-#recreate_msg{
-    color: grey;
-    font-size: 22px;
-    font-weight: bold;
-}
-
-.symbol_inline{
-    display: inline-block;
 }
 
 .learn-chord-header {
@@ -276,14 +234,8 @@
 
 .chord-board {
     margin-left: 2px;
-    width: 250px;
-    height: 350px;
-}
-
-.chord-board_learn {
-    width: 250px;
-    height: 350px;
-    margin-left : 30px;
+    width: 500px;
+    height: 500px;
 }
 
 .home {
@@ -332,82 +284,20 @@
     background-color: green
 }
 
-.togglebut {
-    width: 35px;
-    height: 35px;
-    padding: 0px;
-    font-size: 22px;
-    margin-left:8px;
+
+#resultsPage{
+    font-weight: bold;
+    font-size: 30px;
 }
 
-.togglebut_learn{
-    width: 35px;
-    height: 35px;
-    padding: 0px;
-    font-size: 22px;
-    margin-left:8px;
-}
-#slide2-text1{
-    margin-top: 150px;
-    padding: 0px;
-}
-#slide2-text2{
-    margin-top: 150px;
-}
-.bgimages{
+#youScored{
+    margin-top: 50px;
     text-align: center;
 }
-#slide3-text{
-    margin-top: 150px;
-}
 
-#recreate-correct-text {
-    font-size: 30px;
-    position: absolute;
-    top: 400px;
-    left: 50px;
-}
-
-
-
-
-/* popup section */
-/* #chord-tutorial img {
-    max-height:200px;
-    max-width:200px;
-    height:auto;
-    width:auto;
-} */
-
-img.animated-gif{
-    width: 560px;
-    height: auto;
-}
-
-#ac-wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, .6);
-    z-index: 1001;
-}
-#popup {
-    width: 650px;
-    height: 550px;
-    position:absolute;
-    top: 20%;
-    left:35%;
-    background: #FFFFFF;
-    border: 5px solid #000;
-    border-radius: 25px;
-    -moz-border-radius: 25px;
-    -webkit-border-radius: 25px;
-    box-shadow: #64686e 0px 0px 3px 3px;
-    -moz-box-shadow: #64686e 0px 0px 3px 3px;
-    -webkit-box-shadow: #64686e 0px 0px 3px 3px;
-    /* position: relative;
-    top: 150px;
-    left: 375px; */
+#score{
+    margin-top: 50px;
+    color: darkgray;
+    font-size: 50px;
+    text-align: center;
 }

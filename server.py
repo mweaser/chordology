@@ -15,6 +15,10 @@ correct_count = 0
 incorrect_count = 0
 remaining_count = 10
 
+# correct_count = 2
+# incorrect_count = 2
+# remaining_count = 20
+
 #CHORD DATA
 data = [
     {
@@ -226,15 +230,19 @@ def background():
    return render_template('background.html', info =info)
 
 
-@app.route('/quiz/<id>')
+@app.route('/quiz/<id>', methods=['GET', 'POST'])
 def quiz(id):
-   chordNumber = chordsMCQ[int(id)]
-   return render_template('quiz.html', chordNumber = chordNumber, chords = chordsMCQ)
+    chordNumber = chordsMCQ[int(id)] 
+    return render_template('quiz.html', chordNumber = chordNumber, chords = chordsMCQ, correct_count=correct_count, incorrect_count=incorrect_count, remaining_count=remaining_count)
+
 
 @app.route('/quiz-recreate/<id>')
 def quizRecreate(id):
    return render_template('quiz_recreate.html', data=data[int(id)-1], id=int(id), correct_count=correct_count, incorrect_count=incorrect_count, remaining_count=remaining_count)
 
+@app.route('/results')
+def results():
+   return render_template('results.html', correct_count=correct_count)
 
 # AJAX FUNCTIONS
 # @app.route('/mcquiz/<int:id>')
@@ -247,21 +255,41 @@ def quizRecreate(id):
 #         return make_response(redirect("/"))
 
 
+@app.route('/update_counts_MCQ', methods=['GET', 'POST'])
+def update_counts_MCQ():
+
+    values = request.get_json()   
+    global correct_count 
+    correct_count = values[0]
+    global incorrect_count 
+    incorrect_count = values[1]
+    global remaining_count 
+    remaining_count = values[2]
+    print("values['correct'] is " , values[0])
+    print("correct_count is now ", correct_count)
+    print("incorrect_count is now ", incorrect_count)
+    print("remaining_count is now ", remaining_count)
+
+    print("update_counts_MCQ() used")
+
+    #send back the WHOLE array of data, so the client can redisplay it
+    return jsonify(correct_count=correct_count, incorrect_count = incorrect_count, remaining_count = remaining_count)
+
 
 # ajax for saving sell
 @app.route('/quiz-recreate/update_counts', methods=['GET', 'POST'])
 def update_counts():
-    global correct_count
-    global incorrect_count
-    global remaining_count
 
     values = request.get_json()   
     correct_count = values['correct']
     incorrect_count = values['incorrect']
     remaining_count = values['remaining']
-
+    print("correct_count is now ", correct_count)
+    print("incorrect_count is now ", incorrect_count)
+    print("remaining_count is now ", remaining_count)
     #send back the WHOLE array of data, so the client can redisplay it
-    return jsonify(correct_count=correct_count)
+    return jsonify(correct_count=correct_count, incorrect_count = incorrect_count, remaining_count = remaining_count)
+
 
 @app.route('/mcquiz/<int:id>')
 def mcquiz(id=0):

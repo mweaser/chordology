@@ -291,17 +291,17 @@ function check_correct(rows, cols) {
         $("#nextButton").css('visibility', 'visible');
     }
 
-    // Update the correct, incorrect and remaining on the server side
-    update_counts();
+    let newNumbers = [correct_count, incorrect_count, remaining_count];
+    update_counts(newNumbers);
 }
 
-function update_counts() {
+function update_counts(newNumbers) {
     $.ajax({
         type: "POST",
-        url: "update_counts",                
+        url: "/update_counts_MCQ",                
         dataType : "json",
         contentType: "application/json; charset=utf-8",
-        data : JSON.stringify({correct: correct_count, incorrect: incorrect_count, remaining: remaining_count}),
+        data : JSON.stringify(newNumbers),
         success: function(result){
             console.log("Sucessfully updated counts on server");
         },
@@ -318,6 +318,7 @@ function update_counts() {
 
 
 $(document).ready(function() {
+    update_counts()
     $("#correct").text(correct_count)
     $("#incorrect").text(incorrect_count)
     $("#remaining").text(remaining_count)
@@ -331,6 +332,7 @@ $(document).ready(function() {
         $("#nn").prop('href', "/quiz-recreate/" + (id + 1))
     }
     else {
-        $("#nn").prop('href', "/quiz-results")
+        $("#nn").prop('href', "/results")
     }
+
 })
