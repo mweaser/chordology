@@ -425,7 +425,7 @@ body{
 }
 #homebuttons{
     margin-top: 25px;
-
+}
 
 #recreate-correct-text {
     font-size: 30px;
@@ -436,12 +436,12 @@ body{
 
 
 /* popup section */
-/* #chord-tutorial img {
-    max-height:200px;
-    max-width:200px;
-    height:auto;
-    width:auto;
-} */
+#chord-tutorial img {
+max-height:200px;
+max-width:200px;
+height:auto;
+width:auto;
+}
 
 img.animated-gif{
     width: 560px;
@@ -485,16 +485,15 @@ img.animated-gif{
     font-weight: bold;
     font-size: 30px;
  }
-  
+
  #youScored{
     margin-top: 50px;
     text-align: center;
  }
-  
+
  #score{
     margin-top: 50px;
     color: darkgray;
     font-size: 50px;
     text-align: center;
  }
-
