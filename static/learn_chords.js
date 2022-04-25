@@ -46,15 +46,18 @@ function createButtons(chords, chord_images) {
             $("#chord-image").html("<img class='chord-image-style' src='/static/images/" + chord_images[index] + "'>")
             TOGGLERES = new Array(6)
             droppedarray = new Array(30).fill(0);
-            let symbols = symbols_OG
-            makeNames(symbols)
+            symbols = ["1","2","3"]
+            // makeNames(symbols)
             $("#but0").text("O")
             $("#but1").text("O")
             $("#but2").text("O")
             $("#but3").text("O")
             $("#but4").text("O")
             $("#but5").text("O")
-            togglebutton()
+            $("#learning-correct-text").empty()
+            $("#learning-incorrect-text").empty()
+            execute(chords, chord_images, symbols, data, droppedarray)
+            
         })
     });
 }
@@ -247,19 +250,25 @@ function dragdrop(chords, chord_images, data){
   
 
 function checkhelper(index, droppedarr){
-    let entirearr = $.merge( TOGGLERES, droppedarr )
+
+    let entirearr = $.merge( TOGGLERES, droppedarr)
+    if (entirearr.length>36){
+        entirearr = entirearr.slice(0,35)
+    }
     console.log(entirearr)
     let flatArray = [].concat.apply([], data[index]["layout"]); 
     console.log(flatArray)
     if (entirearr.every((v,i)=> v === flatArray[i])){
         console.log("yes")
         showcorrect()
+        
     }
     else{
         console.log("no")
         showincorrect()
+        
     }
-    
+    return
 }
 
 function check(data, droppedarr){
@@ -294,9 +303,20 @@ function showincorrect(){
     $("#learning-incorrect-text").html(entry)
 }
 
-$(document).ready(function(){
+function execute(chords, chord_images, symbols, data, droppedarray){
     createButtons(chords, chord_images, symbols)
     
+    makeNames(symbols)
+    dragdrop(chords, chord_images, data)
+    togglebutton()
+    $("#check_but").click(function() { 
+        check(data, droppedarray)
+    });  
+}
+
+$(document).ready(function(){
+    // execute(chords, chord_images, symbols, data, droppedarray)
+    createButtons(chords, chord_images, symbols)
     makeNames(symbols)
     dragdrop(chords, chord_images, data)
     togglebutton()
