@@ -214,7 +214,7 @@ def home():
 
 @app.route('/learn')
 def learn_chords():
-   return render_template('learn_chords.html', chords=chords, chord_images=chord_images)
+   return render_template('learn_chords.html', chords=chords, chord_images=chord_images, data = data)
 
 @app.route('/background-quiz')
 def miniquiz():

@@ -7,6 +7,7 @@
 <script>
     let chords = {{chords|tojson}} 
     let chord_images = {{chord_images|tojson}} 
+    let data = {{data|tojson}}
 </script>
 
 <div class = "container">
@@ -64,9 +65,11 @@
                     <div id="butt_ent"></div> 
             </div>  -->
             <div  class="row col-md-12">
-            
-                <img  class="chord-board_learn" id ="chordimage_learn" src="https://39zsbo2fj4og6a79534grq31-wpengine.netdna-ssl.com/wp-content/uploads/blank-963x1024.png">
+                <img  class="chord-board_learn" id ="chordimage_learn" src="/static/images/blank-chord.png">
             </div>
+            <div id = "restartButton">
+                <a id = "check_but">Check</a>
+            </div>  
         </div>
     </div>
 </div>

@@ -183,7 +183,7 @@ window.onload = function () {
     }, 100);
 }
 
-function dragdrop(){
+function dragdrop(chords){
     // a 1d array of length 36 to represent the dropped location.
     let droppedloc = new Array(30)
     $("#chordimage_learn").droppable({
@@ -227,15 +227,21 @@ function dragdrop(){
         }
         console.log(droppedloc)
         //makeNames(symbols)
+
+        $("#check_but").click(function() { 
+            
+        });
+
+
       },
       });
   }
-    
+  
 
 $(document).ready(function(){
     createButtons(chords, chord_images)
     // console.log(chords[0])
     makeNames(symbols)
-    dragdrop()
+    dragdrop(chords)
     togglebutton()
 })

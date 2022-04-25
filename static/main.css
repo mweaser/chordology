@@ -78,6 +78,32 @@
   height: 40px;
 }
 
+#check_but {
+    background-color:grey;
+    border-radius: 8px;
+    border-width: 0;
+    color: blue;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 10px 12px;
+    text-align: center;
+    transition: all 200ms;
+    vertical-align: baseline;
+    white-space: nowrap;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-top: 10px;
+    width: 100px;
+    height: 40px;
+}
+
 .fixed_label{
     position: absolute;
     top: 45px;
@@ -209,12 +235,6 @@
     margin: auto;
 }
 
-#chordimage_learn img{
-    height: 100%;
-    max-width: 100%;
-    display: inline-block;
-    margin-left: 1px;
-}
 
 #recreate_msg{
     color: grey;
@@ -261,8 +281,9 @@
 }
 
 .chord-board_learn {
-    width: 400px;
+    width: 250px;
     height: 350px;
+    margin-left : 30px;
 }
 
 .home {
@@ -322,9 +343,9 @@
 .togglebut_learn{
     width: 35px;
     height: 35px;
-    padding: 0.5px;
+    padding: 0px;
     font-size: 22px;
-    margin-left:16px;
+    margin-left:8px;
 }
 #slide2-text1{
     margin-top: 150px;
