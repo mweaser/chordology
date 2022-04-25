@@ -389,7 +389,7 @@ body{
 .button-row{
     float: right;
 }
-<<<<<<< HEAD
+
 #homeimg{
     position: absolute;
     margin-left: 35%;
@@ -399,7 +399,7 @@ body{
 }
 #homebuttons{
     margin-top: 25px;
-=======
+
 
 #recreate-correct-text {
     font-size: 30px;
@@ -407,8 +407,6 @@ body{
     top: 400px;
     left: 50px;
 }
-
-
 
 
 /* popup section */
@@ -450,5 +448,8 @@ img.animated-gif{
     /* position: relative;
     top: 150px;
     left: 375px; */
->>>>>>> f2e3577f0d21c4ad040b8720f67ca51a67ad8ae8
+}
+.navbar-brand{
+    font-size: italic;
+    font-weight: 800;
 }
