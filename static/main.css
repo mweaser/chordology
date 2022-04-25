@@ -314,3 +314,9 @@
 .bgnav{
     margin-left: 10px;
 }
+.qnumber{
+    width: 500px;
+}
+.button-row{
+    float: right;
+}

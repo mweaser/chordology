@@ -13,12 +13,13 @@
 
     <body>
         <div class="row title">Background Information Quiz</div>
-        <div class="row">Test your knowledge on the background information you learned here!</div>
+        <div class="row">
+            <h5>Test your knowledge on the background information you learned here!<h5>
+        </div>
         <div class="row">
             <div class="col-md-6">
                 <div class="row">
-                    <span>1</span>
-                    <span>From which end of the guitar are frets counted?</span>
+                    <span class="qnumber">1. From which end of the guitar are frets counted?</span>
                 </div>
                 <div class="row">
                     <button class="MC-option MQ1 correct" id="MQ-1A">Top</button>
@@ -31,8 +32,8 @@
             </div>
             <div class="col-md-6">
                 <div class="row">
-                    <span>2</span>
-                    <span>The number 2 on a chord diagram refers to which finger?</span>
+                    <br>
+                    <span class="qnumber">2. The number 2 on a chord diagram refers to which finger?</span>
                 </div>
                 <div class="row">
                     <button class="MC-option MQ2" id="MQ-2A">Pinky</button>
@@ -46,9 +47,9 @@
         </div>
         <div class="row">
             <div class="col-md-6">
+                <br>
                 <div class="row">
-                    <span>3</span>
-                    <span>How does placing your finger on a string on a given fret change the sound of the string?</span>
+                    <span class="qnumber">3. How does placing your finger on a string on a given fret change the sound of the string?</span>
                 </div>
 
                 <div class="row">
@@ -61,10 +62,11 @@
                 </div>
             </div>
             <div class="col-md-6">
+                <br>
                 <div class="row">
-                    <span>4</span>
-                    <span>If a string has an O on top of it on a chord diagram, it is:</span>
+                    <span class="qnumber">4. If a string has an O on top of it on a chord diagram, it is:</span>
                 </div>
+                <br>
                 <div class="row">
                     <button class="MC-option MQ4" id="MQ-4A">Skipped</button>
                     <button class="MC-option MQ4" id="MQ-4B">Pressed</button>
@@ -75,10 +77,12 @@
                 </div>
             </div>
         </div>
-        <button id="restartMQ">Restart</button>
-        <button id="returnbg">Go back to background information</button>
-        <button id="learnchords">Learn chords</button>
-
+        <hr>
+        <div class="button-row">
+            <button class='btn btn-outline-success' id="restartMQ">Restart</button>
+            <button class='btn btn-outline-success' id="returnbg">Go back to background information</button>
+            <button class='btn btn-outline-success' id="learnchords">Learn chords</button>
+        </div>
     </body>
 
 
