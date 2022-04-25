@@ -110,6 +110,15 @@
     left: 31px;
 }
 
+#learning-correct-text {
+    color: green;
+    font-weight: bold;
+}
+
+#learning-incorrect-text {
+    color: red;
+    font-weight: bold;
+}
 
 .fixed_question{
     position: absolute;
@@ -361,6 +370,19 @@
     margin-top: 150px;
 }
 
+#bg-body{
+    height: 500px;
+}
+.bgnav{
+    margin-left: 10px;
+}
+.qnumber{
+    width: 500px;
+}
+.button-row{
+    float: right;
+}
+
 #recreate-correct-text {
     font-size: 30px;
     position: absolute;
@@ -428,4 +450,4 @@ img.animated-gif{
     font-size: 50px;
     text-align: center;
  }
- 
+
