@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% block content %}
+
     <head>
         <script type="text/javascript" src="{{ url_for('static', filename = 'quiz.js') }}"></script>
         <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -11,6 +12,9 @@
         <script>
             let chordNumber = {{chordNumber|tojson}}
             let chords = {{chords|tojson}} 
+            let correct_count = {{correct_count|tojson}}
+            let incorrect_count = {{incorrect_count|tojson}}
+            let remaining_count = {{remaining_count|tojson}}
         </script>
 
     </head>
@@ -22,10 +26,13 @@
             <div class = "row">
                 <div id = "restartButton">
                     <a id = "ee">Restart</a>
+                    <h6 class="col">
+                        Correct: <span id="correct"></span><br>
+                        Incorrect: <span id="incorrect"></span><br>
+                        Remaining: <span id="remaining"></span><br>
+                    </h6>
                 </div>      
-                <!-- <button id = "restartButton">
-                    Restart
-                </button> -->
+              
             </div>
     
             <div class = "row">
@@ -44,7 +51,7 @@
             </div>
 
             <div id = "correctIncorrect" class = "row">
-                
+    
             </div>
 
             <div id = "nextButton" class = "row">
@@ -74,3 +81,4 @@
 
 
 {% endblock %}
+

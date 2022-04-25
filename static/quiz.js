@@ -1,4 +1,27 @@
+function update_counts_MCQ(newNumbers) {
+    console.log(newNumbers)
+    $.ajax({
+        type: "POST",
+        url: "/update_counts_MCQ",                
+        dataType : "json",
+        contentType: "application/json; charset=utf-8",
+        data : JSON.stringify(newNumbers),
+        success: function(result){
+        },
+        error: function(request, status, error){
+            console.log("Error");
+            console.log(request)
+            console.log(status)
+            console.log(error)
+        }
+    });
+}
+
+
 function loadChords(chordNumber){
+    console.log("js" + correct_count)
+    console.log("js" + incorrect_count)
+    console.log("js" + remaining_count)
 
     let newPost2 = $("<img>")
     let inputString2 = chordNumber.image
@@ -60,27 +83,30 @@ function selectRightAnswer(){
     }
 }
 
-// <!-- {
-//     "id": 1,
-//     "choiceOne": "A",
-//     "choiceTwo": "Em",
-//     "choiceThree": "G",
-//     "choiceFour": "D",
-//     "answer": "Em",
-//     "image": "/images/em_chord.png"
-//     } --
-
-
 
 $(document).ready(function(){
-   
-    $("#correctIncorrect").text("")
-    // $("#nextButton").css('visibility', 'hidden');
-    $("#resultsButton").css('visibility', 'hidden');
     
     loadChords(chordNumber)
     
     currentID = parseInt(chordNumber.id)
+
+    if (currentID == 1){
+        let newNumbers = [0,0,10];
+        correct_count = 0
+        incorrect_count = 0
+        remaining_count = 10
+        update_counts_MCQ(newNumbers)
+    }
+
+    update_counts_MCQ()
+    $("#correct").text(correct_count)
+    $("#incorrect").text(incorrect_count)
+    $("#remaining").text(remaining_count)
+   
+    $("#correctIncorrect").text("")
+    // $("#nextButton").css('visibility', 'hidden');
+    $("#resultsButton").css('visibility', 'hidden')
+    
 
     $("#ee").prop('href', "/quiz/" + 1)
     // $("#nextButton").prop('href', "/quiz/" + 3)
@@ -102,13 +128,13 @@ $(document).ready(function(){
         let answer = chordNumber.answer
         
         currentID += 1;
-        console.log("newID is " + parseInt(currentID))
 
-        if (currentID <= 6){
+        if (currentID <= 7){
             $("#nextButton").css('visibility', 'visible');
       
         }
-        else if (currentID == 7){
+        else if (currentID == 8){
+            $("#nextButton").css('visibility', 'hidden');
             $("#resultsButton").css('visibility', 'visible');
       
         }
@@ -125,14 +151,39 @@ $(document).ready(function(){
             $(newPost).prop('value', inputString)
             $("#rowOne").append(newPost)
 
+            
+                correct_count += 1
+                remaining_count -= 1
+        
+           
+            $("#correct").text(correct_count)
+            $("#incorrect").text(incorrect_count)
+            $("#remaining").text(remaining_count)
+            let newNumbers = [0,0,0]
+            newNumbers[0] = correct_count
+            newNumbers[1] = incorrect_count
+            newNumbers[2] = remaining_count
+            update_counts_MCQ(newNumbers);
+            
+
         }
         else {
             $(this).css('background-color','red');
             $("#correctIncorrect").text("Incorrect!")
+            
+        
+                incorrect_count += 1
+                remaining_count -= 1
+         
+            $("#correct").text(correct_count)
+            $("#incorrect").text(incorrect_count)
+            $("#remaining").text(remaining_count)
+            let newNumbers = [0,0,0]
+            newNumbers[0] = correct_count
+            newNumbers[1] = incorrect_count
+            newNumbers[2] = remaining_count
+            update_counts_MCQ(newNumbers);
         }
-
-        console.log("one is " + one)
-        console.log("one Answer is " + answer)
         
     })
 
@@ -151,27 +202,53 @@ $(document).ready(function(){
         let answer = chordNumber.answer
 
         currentID += 1;
-        console.log("newID is " + parseInt(currentID))
 
         if (currentID <= 7){
             $("#nextButton").css('visibility', 'visible');
         }
         else if (currentID == 8){
+            $("#nextButton").css('visibility', 'hidden');
             $("#resultsButton").css('visibility', 'visible');
         }
 
         if (two == answer){
             $(this).css('background-color','green');
+            
+      
+                correct_count += 1
+                remaining_count -= 1
+            
             $("#correctIncorrect").text("Correct!")
+            $("#correct").text(correct_count)
+            $("#incorrect").text(incorrect_count)
+            $("#remaining").text(remaining_count)
+            let newNumbers = [0,0,0]
+            newNumbers[0] = correct_count
+            newNumbers[1] = incorrect_count
+            newNumbers[2] = remaining_count
+            
+            update_counts_MCQ(newNumbers);
             
         }
         else {
             $(this).css('background-color','red');
             $("#correctIncorrect").text("Incorrect!")
+        
+                incorrect_count += 1
+                remaining_count -= 1
+        
+            $("#correct").text(correct_count)
+            $("#incorrect").text(incorrect_count)
+            $("#remaining").text(remaining_count)
+            let newNumbers = [0,0,0]
+            newNumbers[0] = correct_count
+            newNumbers[1] = incorrect_count
+            newNumbers[2] = remaining_count
+            update_counts_MCQ(newNumbers);
+          
         }
 
-        console.log("two is " + two)
-        console.log("two Answer is " + answer)
+       
         
 
     })
@@ -191,26 +268,54 @@ $(document).ready(function(){
         let answer = chordNumber.answer
 
         currentID += 1;
-        console.log("newID is " + parseInt(currentID))
+     
 
         if (currentID <= 7){
             $("#nextButton").css('visibility', 'visible');
         }
         else if (currentID == 8){
+            $("#nextButton").css('visibility', 'hidden');
             $("#resultsButton").css('visibility', 'visible');
         }
 
         if (three == answer){
             $("#correctIncorrect").text("Correct!")
             $(this).css('background-color','green');
+            
+          
+                correct_count += 1
+                remaining_count -= 1
+            
+            $("#correct").text(correct_count)
+            $("#incorrect").text(incorrect_count)
+            $("#remaining").text(remaining_count)
+            let newNumbers = [0,0,0]
+            newNumbers[0] = correct_count
+            newNumbers[1] = incorrect_count
+            newNumbers[2] = remaining_count
+            update_counts_MCQ(newNumbers);
+        
         }
         else {
             $("#correctIncorrect").text("Incorrect!")
-            $(this).css('background-color','red');
+            $(this).css('background-color','red')
+            
+            
+                incorrect_count += 1
+                remaining_count -= 1
+            
+            $("#correct").text(correct_count)
+            $("#incorrect").text(incorrect_count)
+            $("#remaining").text(remaining_count)
+            let newNumbers = [0,0,0]
+            newNumbers[0] = correct_count
+            newNumbers[1] = incorrect_count
+            newNumbers[2] = remaining_count
+            update_counts_MCQ(newNumbers);
+       
         }
 
-        console.log("three is " + three)
-        console.log("three Answer is " + answer)
+      
         
 
     })
@@ -230,22 +335,45 @@ $(document).ready(function(){
         let answer = chordNumber.answer
 
         currentID += 1;
-        console.log("newID is " + parseInt(currentID))
+     
 
         if (currentID <= 7){
             $("#nextButton").css('visibility', 'visible');
         }
         else if (currentID == 8){
+            
+            $("#nextButton").css('visibility', 'hidden');
             $("#resultsButton").css('visibility', 'visible');
         }
 
         if (four == answer){
             $("#correctIncorrect").text("Correct!")
             $(this).css('background-color','green');
+            correct_count += 1
+            remaining_count -= 1
+            $("#correct").text(correct_count)
+            $("#incorrect").text(incorrect_count)
+            $("#remaining").text(remaining_count)
+            let newNumbers = [0,0,0]
+            newNumbers[0] = correct_count
+            newNumbers[1] = incorrect_count
+            newNumbers[2] = remaining_count
+            update_counts_MCQ(newNumbers);
+          
         }
         else {
             $("#correctIncorrect").text("Incorrect!")
-            $(this).css('background-color','red');
+            $(this).css('background-color','red')
+            incorrect_count += 1
+            remaining_count -= 1
+            $("#correct").text(correct_count)
+            $("#incorrect").text(incorrect_count)
+            $("#remaining").text(remaining_count)
+            let newNumbers = [0,0,0]
+            newNumbers[0] = correct_count
+            newNumbers[1] = incorrect_count
+            newNumbers[2] = remaining_count
+            update_counts_MCQ(newNumbers);
         }
 
         console.log(four)
@@ -253,6 +381,7 @@ $(document).ready(function(){
         
     })
 
+    
 
         
 });
