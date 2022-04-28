@@ -315,6 +315,9 @@ function execute(chords, chord_images, symbols, data, droppedarray){
 }
 
 $(document).ready(function(){
+    $("#popupButton").click(function() { 
+        PopUp('show')
+    }); 
     // execute(chords, chord_images, symbols, data, droppedarray)
     createButtons(chords, chord_images, symbols)
     makeNames(symbols)

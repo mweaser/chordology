@@ -13,7 +13,8 @@
 <div class = "container">
     <div class="row">
     <div id="button-row" class="row row-border"></div>
-
+    
+    <button id = "popupButton">Show Tutorial</button>
     <div class="row col-md-6">
         <div id="chord-image" class="col-md-6">
             <img class="chord-image-style" src="/static/images/chord-a-major.png">
@@ -24,9 +25,12 @@
     <div id="ac-wrapper" style='display:inline'>
             <div class = "container" id="popup">
                 <center>
-                    <h2>Watch the following tutorial for instructions</h2>
+                    <p id = "tutorialText1" >Click on the buttons to toggle between open and closed strings</p>
                     <img  class="animated-gif" id="chord-tutorial" src="/static/images/draggabletutorial.gif">
+                    <p id = "tutorialText2" >Click and drag the numbered circles to the correct frets</p>
                     <input type="submit" name="Close" value="Close" onClick="PopUp('hide')" />
+                   
+            
                 </center>
             </div>
     </div>
