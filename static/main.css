@@ -441,6 +441,7 @@ max-height:200px;
 max-width:200px;
 height:auto;
 width:auto;
+margin-top: -100px;
 }
 
 img.animated-gif{
@@ -497,3 +498,42 @@ img.animated-gif{
     font-size: 50px;
     text-align: center;
  }
+
+ #popupButton{
+        background-color: white;
+        border-radius: 8px;
+        border: 1px solid #e07a5fff;
+        border-color: #e07a5fff;
+        color: #e07a5fff;
+        cursor: pointer;
+        display: inline-block;
+        font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 22px;
+        font-weight: 500;
+        line-height: 20px;
+        list-style: none;
+        padding: 10px 12px;
+        text-align: center;
+        transition: all 200ms;
+        vertical-align: baseline;
+        white-space: nowrap;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        margin-top: 10px;
+        width: fit-content;
+        height: 40px;
+        margin-top: 32px;
+        margin-left: -20px;
+}
+
+#tutorialText1{
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#tutorialText2{
+    font-weight: bold;
+    margin-top: -70px;
+}
+

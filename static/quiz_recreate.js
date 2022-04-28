@@ -318,6 +318,8 @@ function update_counts(newNumbers) {
 
 
 $(document).ready(function() {
+
+    
     update_counts()
     $("#correct").text(correct_count)
     $("#incorrect").text(incorrect_count)
