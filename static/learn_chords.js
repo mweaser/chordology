@@ -27,8 +27,8 @@ let toggles = [
     }
 ]
 
-let CLICKED = "A";
-let TOGGLERES;
+let CLICKED = "A"; 
+let TOGGLERES;     
 let droppedarray;
 
 function createButtons(chords, chord_images) {
@@ -40,28 +40,20 @@ function createButtons(chords, chord_images) {
         $(button).text(value)
         entry.append(button)
         $("#button-row").append(entry)
-
+        
         $(button).click(function() {
             CLICKED = chords[index]
             $("#chord-image").html("<img class='chord-image-style' src='/static/images/" + chord_images[index] + "'>")
-
-            // TOGGLERES = new Array(6)
-            // droppedarray = new Array(30).fill(0);
-
+            
+            
+            
             symbols = ["1","2","3"]
-            // makeNames(symbols)
-            // $("#but0").text("O")
-            // $("#but1").text("O")
-            // $("#but2").text("O")
-            // $("#but3").text("O")
-            // $("#but4").text("O")
-            // $("#but5").text("O")
             // togglebutton()
             $("#learning-correct-text").empty()
             $("#learning-incorrect-text").empty()
-
+            
             execute(chords, chord_images, symbols, data)
-
+          
         })
     });
 }
@@ -87,7 +79,7 @@ function makeNames(symbolsentry){
         $(value).append(newsym)
         })
     });
-    $(".symbol_entry").draggable({
+    $(".symbol_entry").draggable({ 
         revert: 'invalid',
         });
     }
@@ -100,100 +92,100 @@ function togglebutton() {
     for (let i = 0; i < toggleloc.length; i++) {
         toggleloc[i] = 1;
     }
-    $("#but0").click(function() {
-        if ($(this).text() == "O") {
-            $(this).text("X");
+    $("#but0").click(function() { 
+        if ($(this).text() == "O") { 
+            $(this).text("X"); 
             toggleloc[0] = 2
             console.log(toggleloc)
-        } else if ($(this).text() == "X") {
+        } else if ($(this).text() == "X") { 
             $(this).text(" ");
             toggleloc[0] = 0
             console.log(toggleloc)
         }
         else {
             $(this).text("O");
-            toggleloc[0] = 1
+            toggleloc[0] = 1 
             console.log(toggleloc)
-        };
+        }; 
     });
-    $("#but1").click(function() {
-        if ($(this).text() == "O") {
-            $(this).text("X");
+    $("#but1").click(function() { 
+        if ($(this).text() == "O") { 
+            $(this).text("X"); 
             toggleloc[1] = 2
-        } else if ($(this).text() == "X") {
+        } else if ($(this).text() == "X") { 
             $(this).text(" ");
             toggleloc[1] = 0
             console.log(toggleloc)
         }
         else {
             $(this).text("O");
-            toggleloc[1] = 1
+            toggleloc[1] = 1 
             console.log(toggleloc)
-        };
+        }; 
     });
-    $("#but2").click(function() {
-        if ($(this).text() == "O") {
-            $(this).text("X");
+    $("#but2").click(function() { 
+        if ($(this).text() == "O") { 
+            $(this).text("X"); 
             toggleloc[2] = 2
-        } else if ($(this).text() == "X") {
+        } else if ($(this).text() == "X") { 
             $(this).text(" ");
             toggleloc[2] = 0
             console.log(toggleloc)
         }
         else {
             $(this).text("O");
-            toggleloc[2] = 1
+            toggleloc[2] = 1 
             console.log(toggleloc)
-        };
+        }; 
     });
-    $("#but3").click(function() {
-        if ($(this).text() == "O") {
-            $(this).text("X");
+    $("#but3").click(function() { 
+        if ($(this).text() == "O") { 
+            $(this).text("X"); 
             toggleloc[3] = 2
-        } else if ($(this).text() == "X") {
+        } else if ($(this).text() == "X") { 
             $(this).text(" ");
             toggleloc[3] = 0
             console.log(toggleloc)
         }
         else {
             $(this).text("O");
-            toggleloc[3] = 1
+            toggleloc[3] = 1 
             console.log(toggleloc)
-        };
+        }; 
     });
-    $("#but4").click(function() {
-        if ($(this).text() == "O") {
-            $(this).text("X");
+    $("#but4").click(function() { 
+        if ($(this).text() == "O") { 
+            $(this).text("X"); 
             toggleloc[4] = 2
-        } else if ($(this).text() == "X") {
+        } else if ($(this).text() == "X") { 
             $(this).text(" ");
             toggleloc[4] = 0
             console.log(toggleloc)
         }
         else {
             $(this).text("O");
-            toggleloc[4] = 1
+            toggleloc[4] = 1 
             console.log(toggleloc)
-        };
+        }; 
     });
-    $("#but5").click(function() {
-        if ($(this).text() == "O") {
-            $(this).text("X");
+    $("#but5").click(function() { 
+        if ($(this).text() == "O") { 
+            $(this).text("X"); 
             toggleloc[5] = 2
             console.log(toggleloc)
-        } else if ($(this).text() == "X") {
+        } else if ($(this).text() == "X") { 
             $(this).text(" ");
             toggleloc[5] = 0
             console.log(toggleloc)
         }
         else {
             $(this).text("O");
-            toggleloc[5] = 1
+            toggleloc[5] = 1 
             console.log(toggleloc)
-        };
+        }; 
     });
     TOGGLERES = toggleloc
-
+    return toggleloc
 }
 
 function PopUp(hideOrshow) {
@@ -209,7 +201,7 @@ window.onload = function () {
 function dragdrop(chords, chord_images, data){
     // a 1d array of length 36 to represent the dropped location.
     let droppedloc = new Array(30).fill(0);
-    // let entirearr = $.merge( TOGGLERES, droppedloc )
+    
     $("#chordimage_learn").droppable({
       drop: function( event, ui ) {
         name = ui.draggable.attr('data-name')
@@ -217,7 +209,7 @@ function dragdrop(chords, chord_images, data){
         if (original == "symb_ent"){
           let pos = $( name ).index( symbols )
           symbols.splice(pos,1)
-
+        
         }
         let newPosX = ui.offset.left - $(this).offset().left;
         let newPosY = ui.offset.top - $(this).offset().top;
@@ -227,7 +219,7 @@ function dragdrop(chords, chord_images, data){
             countx += 1
         }
 
-
+        
         // these coordinates are specific to the given graph
         if ( (newPosY > 14 && newPosY < 29)){
             droppedloc[countx] = parseInt(name)
@@ -246,25 +238,28 @@ function dragdrop(chords, chord_images, data){
         }
         console.log(droppedloc)
         droppedarray = droppedloc
-
+       
       },
       });
   }
-
+  
 
 function checkhelper(index, droppedarr){
 
-    let entirearr = $.merge( TOGGLERES, droppedarr)
-    if (entirearr.length>36){
-        entirearr = entirearr.slice(0,35)
+    
+    console.log(TOGGLERES)
+    if (TOGGLERES.length>6){
+        TOGGLERES = TOGGLERES.slice(0,6)
     }
+    // let entirearr = $.merge( TOGGLERES, droppedarr)
+    let entirearr = $.merge( $.merge( [], TOGGLERES ), droppedarr );
     console.log(entirearr)
-    let flatArray = [].concat.apply([], data[index]["layout"]);
+    let flatArray = [].concat.apply([], data[index]["layout"]); 
     console.log(flatArray)
     if (entirearr.every((v,i)=> v === flatArray[i])){
         console.log("yes")
         showcorrect()
-
+        
     }
     else{
         console.log("no")
@@ -281,7 +276,9 @@ function check(data, droppedarr){
         checkhelper(1, droppedarr)
     }
     else if (CLICKED == "G"){
+        console.log(droppedarr)
         checkhelper(2, droppedarr)
+
     }
     else if (CLICKED == "D"){
         checkhelper(3, droppedarr)
@@ -306,36 +303,37 @@ function showincorrect(){
 }
 
 function execute(chords, chord_images, symbols, data){
-    console.log("1")
-    TOGGLERES = new Array(6)
-    droppedarray = new Array(30).fill(0);
-    $("#but0").html("O")
-    $("#but1").html("O")
-    $("#but2").html("O")
-    $("#but3").html("O")
-    $("#but4").html("O")
-    $("#but5").html("O")
+    // TOGGLERES = new Array(6).fill(1);
+   
+    // $("#but0").html("O")
+    // $("#but1").html("O")
+    // $("#but2").html("O")
+    // $("#but3").html("O")
+    // $("#but4").html("O")
+    // $("#but5").html("O")
     makeNames(symbols)
+    // togglebutton()
     dragdrop(chords, chord_images, data)
-    $("#check_but").click(function() {
+    $("#check_but").click(function() { 
+       
         check(data, droppedarray)
-    });
-
+    });  
+    
 }
 
 $(document).ready(function(){
-    $("#learn").css("font-weight", "800")
-    $("#learn").css("color", "#f0887d")
-
-    $("#popupButton").click(function() {
+    $("#learn").css("font-weight", "bold")
+    $("#learn").css("color", "orange")
+   
+    $("#popupButton").click(function() { 
         PopUp('show')
-    });
+    }); 
     createButtons(chords, chord_images, symbols)
     makeNames(symbols)
     togglebutton()
     dragdrop(chords, chord_images, data)
-    $("#check_but").click(function() {
+    $("#check_but").click(function() { 
         check(data, droppedarray)
-    });
-
+    });  
+    
 })
