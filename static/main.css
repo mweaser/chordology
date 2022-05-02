@@ -133,11 +133,18 @@
 #learning-correct-text {
     color: green;
     font-weight: bold;
+    top: 102%;
+    left: 28%;
+    position:absolute;
+
 }
 
 #learning-incorrect-text {
     color: red;
     font-weight: bold;
+    top: 102%;
+    left: 28%;
+    position:absolute;
 }
 
 .fixed_question{
@@ -462,6 +469,11 @@ img.animated-gif{
     height: 100%;
     background: rgba(255, 255, 255, .6);
     z-index: 1001;
+}
+#check_but {
+    top: 99.5%;
+    left: 6%;
+    position:absolute;
 }
 #popup {
     width: 650px;

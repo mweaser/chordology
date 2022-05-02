@@ -1,9 +1,9 @@
-let symbols_OG = [
+let symbols = [
     "1",
     "2",
     "3",
 ]
-let symbols = symbols_OG
+
 let toggles = [
     {
         "id": "but0",
@@ -27,7 +27,7 @@ let toggles = [
     }
 ]
 
-var CLICKED = "A"; 
+let CLICKED = "A"; 
 let TOGGLERES;     
 let droppedarray;
 
@@ -40,24 +40,28 @@ function createButtons(chords, chord_images) {
         $(button).text(value)
         entry.append(button)
         $("#button-row").append(entry)
-
+        
         $(button).click(function() {
             CLICKED = chords[index]
             $("#chord-image").html("<img class='chord-image-style' src='/static/images/" + chord_images[index] + "'>")
-            TOGGLERES = new Array(6)
-            droppedarray = new Array(30).fill(0);
+            
+            // TOGGLERES = new Array(6)
+            // droppedarray = new Array(30).fill(0);
+            
             symbols = ["1","2","3"]
             // makeNames(symbols)
-            $("#but0").text("O")
-            $("#but1").text("O")
-            $("#but2").text("O")
-            $("#but3").text("O")
-            $("#but4").text("O")
-            $("#but5").text("O")
+            // $("#but0").text("O")
+            // $("#but1").text("O")
+            // $("#but2").text("O")
+            // $("#but3").text("O")
+            // $("#but4").text("O")
+            // $("#but5").text("O")
+            // togglebutton()
             $("#learning-correct-text").empty()
             $("#learning-incorrect-text").empty()
-            execute(chords, chord_images, symbols, data, droppedarray)
             
+            execute(chords, chord_images, symbols, data)
+          
         })
     });
 }
@@ -96,7 +100,6 @@ function togglebutton() {
     for (let i = 0; i < toggleloc.length; i++) {
         toggleloc[i] = 1;
     }
-    
     $("#but0").click(function() { 
         if ($(this).text() == "O") { 
             $(this).text("X"); 
@@ -190,7 +193,7 @@ function togglebutton() {
         }; 
     });
     TOGGLERES = toggleloc
-    return toggleloc
+    
 }
 
 function PopUp(hideOrshow) {
@@ -266,7 +269,6 @@ function checkhelper(index, droppedarr){
     else{
         console.log("no")
         showincorrect()
-        
     }
     return
 }
@@ -303,29 +305,37 @@ function showincorrect(){
     $("#learning-incorrect-text").html(entry)
 }
 
-function execute(chords, chord_images, symbols, data, droppedarray){
-    createButtons(chords, chord_images, symbols)
-    
+function execute(chords, chord_images, symbols, data){
+    console.log("1")
+    TOGGLERES = new Array(6)
+    droppedarray = new Array(30).fill(0);
+    $("#but0").html("O")
+    $("#but1").html("O")
+    $("#but2").html("O")
+    $("#but3").html("O")
+    $("#but4").html("O")
+    $("#but5").html("O")
     makeNames(symbols)
     dragdrop(chords, chord_images, data)
-    togglebutton()
     $("#check_but").click(function() { 
         check(data, droppedarray)
     });  
+    
 }
 
 $(document).ready(function(){
     $("#learn").css("font-weight", "bold")
     $("#learn").css("color", "orange")
+   
     $("#popupButton").click(function() { 
         PopUp('show')
     }); 
-    // execute(chords, chord_images, symbols, data, droppedarray)
     createButtons(chords, chord_images, symbols)
     makeNames(symbols)
-    dragdrop(chords, chord_images, data)
     togglebutton()
+    dragdrop(chords, chord_images, data)
     $("#check_but").click(function() { 
         check(data, droppedarray)
     });  
+    
 })
