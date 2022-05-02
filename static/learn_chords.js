@@ -315,6 +315,8 @@ function execute(chords, chord_images, symbols, data, droppedarray){
 }
 
 $(document).ready(function(){
+    $("#learn").css("font-weight", "bold")
+    $("#learn").css("color", "orange")
     $("#popupButton").click(function() { 
         PopUp('show')
     }); 

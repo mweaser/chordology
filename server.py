@@ -238,7 +238,7 @@ def quiz(id):
 
 @app.route('/quiz-recreate/<id>')
 def quizRecreate(id):
-   return render_template('quiz_recreate.html', data=data[int(id)-1], id=int(id), correct_count=correct_count, incorrect_count=incorrect_count, remaining_count=remaining_count)
+   return render_template('quiz_recreate.html', data=data[int(id)+1], id=int(id), correct_count=correct_count, incorrect_count=incorrect_count, remaining_count=remaining_count)
 
 @app.route('/results')
 def results():

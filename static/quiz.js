@@ -85,6 +85,8 @@ function selectRightAnswer(){
 
 
 $(document).ready(function(){
+    $("#quiz").css("font-weight", "bold")
+    $("#quiz").css("color", "orange")
     
     loadChords(chordNumber)
     

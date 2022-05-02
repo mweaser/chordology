@@ -38,6 +38,7 @@ function emprow(index, symbol){
     entry.addClass("ui-widget-content")
     entry.addClass("symbol-style")
     entry.addClass("symbol_entry")
+    entry.addClass("symbol_inline")
     entry.attr("data-name",symbol)
     return entry
   }
@@ -272,8 +273,11 @@ function check_correct(rows, cols) {
 
     if (firstCorrect && secondCorrect && thirdCorrect && toggleCorrect) {
         let entry = $("<div></div>")
-        entry.text("CORRECT!")
+        entry.text("Correct!")
         $("#recreate-correct-text").html(entry)
+        $("#recreate-correct-text").html(entry)
+        $("#recreate-correct-text").css('left', '110px')
+        $("#recreate-correct-text").css('color', 'green')
         correct_count += 1
         remaining_count -= 1
         $("#correct").text(correct_count)
@@ -282,13 +286,16 @@ function check_correct(rows, cols) {
     }
     else {
         let entry = $("<div></div>")
-        entry.text("INCORRECT!")
+        entry.text("Incorrect!")
         $("#recreate-correct-text").html(entry)
+        $("#recreate-correct-text").css('left', '100px')
+        $("#recreate-correct-text").css('color', 'red')
         incorrect_count += 1
         remaining_count -= 1
         $("#incorrect").text(incorrect_count)
         $("#remaining").text(remaining_count)
         $("#nextButton").css('visibility', 'visible');
+        $("#correctImage").css('visibility', 'visible');
     }
 
     let newNumbers = [correct_count, incorrect_count, remaining_count];
@@ -314,12 +321,18 @@ function update_counts(newNumbers) {
     });
 }
 
-
+function addHiddenCorrectImage() {
+    console.log(data["image"])
+    htmlValue = "<img class='img-chord-correct' src='/static/images/" + data["image"] + "'>"
+    $("#correctImage").html(htmlValue)
+    $("#correctImage").css('visibility', 'hidden');
+}
 
 
 $(document).ready(function() {
-
-    
+    $("#quiz").css("font-weight", "bold")
+    $("#quiz").css("color", "orange")
+    addHiddenCorrectImage()
     update_counts()
     $("#correct").text(correct_count)
     $("#incorrect").text(incorrect_count)

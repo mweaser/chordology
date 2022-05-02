@@ -71,5 +71,6 @@ function createButtons(info, ct) {
 
 $(document).ready(function(){
   createButtons(info, 1)
-
+  $("#diagram").css("font-weight", "bold")
+  $("#diagram").css("color", "orange")
 })
