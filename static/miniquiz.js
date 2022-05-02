@@ -56,4 +56,7 @@ $(document).ready(function(){
     $("#learnchords").click(function(){
         window.location.replace("/learn")
     })
+
+    $("#learn").css("font-weight", "800")
+    $("#learn").css("color", "#f0887d")
 });

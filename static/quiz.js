@@ -2,7 +2,7 @@ function update_counts_MCQ(newNumbers) {
     console.log(newNumbers)
     $.ajax({
         type: "POST",
-        url: "/update_counts_MCQ",                
+        url: "/update_counts_MCQ",
         dataType : "json",
         contentType: "application/json; charset=utf-8",
         data : JSON.stringify(newNumbers),
@@ -31,28 +31,28 @@ function loadChords(chordNumber){
 
     let newPost3 = $("<button>")
     let inputString3 = chordNumber.choiceOne
-    $(newPost3).text(inputString3)  
+    $(newPost3).text(inputString3)
     $(newPost3).prop('id', 'choiceOne')
     $(newPost3).prop('value', inputString3)
     $("#rowOne").append(newPost3)
 
     let newPost4 = $("<button>")
     let inputString4 = chordNumber.choiceTwo
-    $(newPost4).text(inputString4)  
+    $(newPost4).text(inputString4)
     $(newPost4).prop('id', 'choiceTwo')
     $(newPost4).prop('value', inputString4)
     $("#rowOne").append(newPost4)
 
     let newPost5 = $("<button>")
     let inputString5 = chordNumber.choiceThree
-    $(newPost5).text(inputString5)  
+    $(newPost5).text(inputString5)
     $(newPost5).prop('id', 'choiceThree')
     $(newPost5).prop('value', inputString5)
     $("#rowTwo").append(newPost5)
 
     let newPost6 = $("<button>")
     let inputString6 = chordNumber.choiceFour
-    $(newPost6).text(inputString6)  
+    $(newPost6).text(inputString6)
     $(newPost6).prop('id', 'choiceFour')
     $(newPost6).prop('value', inputString6)
     $("#rowTwo").append(newPost6)
@@ -85,11 +85,11 @@ function selectRightAnswer(){
 
 
 $(document).ready(function(){
-    $("#quiz").css("font-weight", "bold")
-    $("#quiz").css("color", "orange")
-    
+    $("#quiz").css("font-weight", "800")
+    $("#quiz").css("color", "#f0887d")
+
     loadChords(chordNumber)
-    
+
     currentID = parseInt(chordNumber.id)
 
     if (currentID == 1){
@@ -104,17 +104,17 @@ $(document).ready(function(){
     $("#correct").text(correct_count)
     $("#incorrect").text(incorrect_count)
     $("#remaining").text(remaining_count)
-   
+
     $("#correctIncorrect").text("")
     // $("#nextButton").css('visibility', 'hidden');
     $("#resultsButton").css('visibility', 'hidden')
-    
+
 
     $("#ee").prop('href', "/quiz/" + 1)
     // $("#nextButton").prop('href', "/quiz/" + 3)
     console.log ("/quiz/" + currentID)
-  
-    
+
+
     $("#choiceOne").click(function(){
         currentID += 1
         $("#nn").prop('href', "/quiz/" + currentID)
@@ -128,19 +128,19 @@ $(document).ready(function(){
 
         let one = $(this).attr('value')
         let answer = chordNumber.answer
-        
+
         currentID += 1;
 
         if (currentID <= 7){
             $("#nextButton").css('visibility', 'visible');
-      
+
         }
         else if (currentID == 8){
             $("#nextButton").css('visibility', 'hidden');
             $("#resultsButton").css('visibility', 'visible');
-      
+
         }
-        
+
 
         if (one == answer){
             $(this).css('background-color','green');
@@ -148,16 +148,16 @@ $(document).ready(function(){
             $("#ee").prop('href', "/quiz/" + chordNumber.id)
             let newPost = $("<button>")
             let inputString = chordNumber.choiceTwo
-            $(newPost).text(inputString)  
+            $(newPost).text(inputString)
             $(newPost).prop('id', 'choiceTwo')
             $(newPost).prop('value', inputString)
             $("#rowOne").append(newPost)
 
-            
+
                 correct_count += 1
                 remaining_count -= 1
-        
-           
+
+
             $("#correct").text(correct_count)
             $("#incorrect").text(incorrect_count)
             $("#remaining").text(remaining_count)
@@ -166,17 +166,17 @@ $(document).ready(function(){
             newNumbers[1] = incorrect_count
             newNumbers[2] = remaining_count
             update_counts_MCQ(newNumbers);
-            
+
 
         }
         else {
             $(this).css('background-color','red');
             $("#correctIncorrect").text("Incorrect!")
-            
-        
+
+
                 incorrect_count += 1
                 remaining_count -= 1
-         
+
             $("#correct").text(correct_count)
             $("#incorrect").text(incorrect_count)
             $("#remaining").text(remaining_count)
@@ -186,7 +186,7 @@ $(document).ready(function(){
             newNumbers[2] = remaining_count
             update_counts_MCQ(newNumbers);
         }
-        
+
     })
 
     $("#choiceTwo").click(function(){
@@ -215,11 +215,11 @@ $(document).ready(function(){
 
         if (two == answer){
             $(this).css('background-color','green');
-            
-      
+
+
                 correct_count += 1
                 remaining_count -= 1
-            
+
             $("#correctIncorrect").text("Correct!")
             $("#correct").text(correct_count)
             $("#incorrect").text(incorrect_count)
@@ -228,17 +228,17 @@ $(document).ready(function(){
             newNumbers[0] = correct_count
             newNumbers[1] = incorrect_count
             newNumbers[2] = remaining_count
-            
+
             update_counts_MCQ(newNumbers);
-            
+
         }
         else {
             $(this).css('background-color','red');
             $("#correctIncorrect").text("Incorrect!")
-        
+
                 incorrect_count += 1
                 remaining_count -= 1
-        
+
             $("#correct").text(correct_count)
             $("#incorrect").text(incorrect_count)
             $("#remaining").text(remaining_count)
@@ -247,11 +247,11 @@ $(document).ready(function(){
             newNumbers[1] = incorrect_count
             newNumbers[2] = remaining_count
             update_counts_MCQ(newNumbers);
-          
+
         }
 
-       
-        
+
+
 
     })
 
@@ -270,7 +270,7 @@ $(document).ready(function(){
         let answer = chordNumber.answer
 
         currentID += 1;
-     
+
 
         if (currentID <= 7){
             $("#nextButton").css('visibility', 'visible');
@@ -283,11 +283,11 @@ $(document).ready(function(){
         if (three == answer){
             $("#correctIncorrect").text("Correct!")
             $(this).css('background-color','green');
-            
-          
+
+
                 correct_count += 1
                 remaining_count -= 1
-            
+
             $("#correct").text(correct_count)
             $("#incorrect").text(incorrect_count)
             $("#remaining").text(remaining_count)
@@ -296,16 +296,16 @@ $(document).ready(function(){
             newNumbers[1] = incorrect_count
             newNumbers[2] = remaining_count
             update_counts_MCQ(newNumbers);
-        
+
         }
         else {
             $("#correctIncorrect").text("Incorrect!")
             $(this).css('background-color','red')
-            
-            
+
+
                 incorrect_count += 1
                 remaining_count -= 1
-            
+
             $("#correct").text(correct_count)
             $("#incorrect").text(incorrect_count)
             $("#remaining").text(remaining_count)
@@ -314,11 +314,11 @@ $(document).ready(function(){
             newNumbers[1] = incorrect_count
             newNumbers[2] = remaining_count
             update_counts_MCQ(newNumbers);
-       
+
         }
 
-      
-        
+
+
 
     })
 
@@ -337,13 +337,13 @@ $(document).ready(function(){
         let answer = chordNumber.answer
 
         currentID += 1;
-     
+
 
         if (currentID <= 7){
             $("#nextButton").css('visibility', 'visible');
         }
         else if (currentID == 8){
-            
+
             $("#nextButton").css('visibility', 'hidden');
             $("#resultsButton").css('visibility', 'visible');
         }
@@ -361,7 +361,7 @@ $(document).ready(function(){
             newNumbers[1] = incorrect_count
             newNumbers[2] = remaining_count
             update_counts_MCQ(newNumbers);
-          
+
         }
         else {
             $("#correctIncorrect").text("Incorrect!")
@@ -380,10 +380,10 @@ $(document).ready(function(){
 
         console.log(four)
         console.log(answer)
-        
+
     })
 
-    
 
-        
+
+
 });

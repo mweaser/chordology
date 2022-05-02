@@ -48,7 +48,6 @@ function createButtons(info, ct) {
         if(count>1){
             $("#next_button").append(prevbutton)
         }
-
       }
 
 
@@ -71,6 +70,6 @@ function createButtons(info, ct) {
 
 $(document).ready(function(){
   createButtons(info, 1)
-  $("#diagram").css("font-weight", "bold")
-  $("#diagram").css("color", "orange")
+  $("#diagram").css("font-weight", "800")
+  $("#diagram").css("color", "#f0887d")
 })

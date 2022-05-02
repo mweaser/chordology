@@ -5,15 +5,15 @@
 <script type="text/javascript" src="{{ url_for('static', filename = 'learn_chords.js') }}"></script>
 
 <script>
-    let chords = {{chords|tojson}} 
-    let chord_images = {{chord_images|tojson}} 
+    let chords = {{chords|tojson}}
+    let chord_images = {{chord_images|tojson}}
     let data = {{data|tojson}}
 </script>
 
 <div class = "container">
     <div class="row">
     <div id="button-row" class="row row-border"></div>
-    
+
     <button id = "popupButton">Show Tutorial</button>
     <div class="row col-md-6">
         <div id="chord-image" class="col-md-6">
@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    
+
     <div id="ac-wrapper" style='display:inline'>
             <div class = "container" id="popup">
                 <center>
@@ -29,8 +29,8 @@
                     <img  class="animated-gif" id="chord-tutorial" src="/static/images/draggabletutorial.gif">
                     <p id = "tutorialText2" >Click and drag the numbered circles to the correct frets, click Check button to verify.</p>
                     <input type="submit" name="Close" value="Close" onClick="PopUp('hide')" />
-                   
-            
+
+
                 </center>
             </div>
     </div>
@@ -49,15 +49,15 @@
             <div id="symbols"></div>
             <div id="all-chords"></div>
             <div id="symbol_label" class=" col-md-6">
-                <div id="symb_ent"></div> 
-            </div> 
+                <div id="symb_ent"></div>
+            </div>
             <br>
         </div>
-        
-        
-       
+
+
+
         <div class="row">
-            
+
             <div class = "container">
                 <button class='togglebut_learn btn btn-outline-success' id = "but0">O</button>
                 <button class='togglebut_learn btn btn-outline-success' id = "but1">O</button>
@@ -67,7 +67,7 @@
                 <button class='togglebut_learn btn btn-outline-success' id = "but5">O</button>
             </div>
             <!-- <div id="butt_label">
-                    <div id="butt_ent"></div> 
+                    <div id="butt_ent"></div>
             </div>  -->
             <div  class="row col-md-12">
                 <img  class="chord-board_learn" id ="chordimage_learn" src="/static/images/blank-chord.png">
@@ -75,13 +75,13 @@
             <!-- <div id = "check">
                 <a id = "check_but">Check</a>
             </div>   -->
-            
+
             <button class='check btn btn-outline-success' id = "check_but">Check</button>
-            <br> 
+            <br>
             <br>
             <div id = "learning-correct-text"></div>
             <div id = "learning-incorrect-text"></div>
-          
+
         </div>
     </div>
 </div>

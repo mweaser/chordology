@@ -6,23 +6,23 @@
 }
 .btn{
     background-color: white !important;
-    border: solid 1px #e07a5fff !important;
-    color: #e07a5fff !important;
+    border: solid 1px #f0887d !important;
+    color: #f0887d !important;
 
 }
 .btn:hover{
-    background-color: #e07a5fff !important;
-    border: solid 1px #e07a5fff !important;
+    background-color: #f0887d !important;
+    border: solid 1px #f0887d !important;
     color: white !important;
 }
 .btn:active{
-    background-color: #e07a5fff !important;
-    border: solid 1px #e07a5fff !important;
+    background-color: #f0887d !important;
+    border: solid 1px #f0887d !important;
     color: white !important;
 }
 .btn:focus{
-    background-color: #e07a5fff !important;
-    border: solid 1px #e07a5fff !important;
+    background-color: #f0887d !important;
+    border: solid 1px #f0887d !important;
     color: white !important;
 }
 #image{
@@ -234,7 +234,7 @@
 }
 
 .symbol-style{
-    background-color: #e07a5fff;
+    background-color: #f0887d;
     width: 40px;
     height: 50px;
     border-radius: 50%;
@@ -311,7 +311,7 @@
     border-radius: 20%;
     background-color: #f4f1de;
     color: #3d405b;
-    filter: drop-shadow(2px 2px 0px #e07a5fff)
+    filter: drop-shadow(2px 2px 0px #f0887d)
 }
 
 .row-border {
@@ -350,7 +350,7 @@
     font-weight: 800;
     font-family: 'Public Sans', sans-serif;
     font-style: italic;
-    filter: drop-shadow(2px 2px 0px #e07a5fff);
+    filter: drop-shadow(2px 2px 0px #f0887d);
 }
 .homedesc{
     font-size: 20px;
@@ -368,7 +368,7 @@ body{
     color: #3d405b;
     margin-right: 10px;
     font-weight: 500;
-    filter: drop-shadow(2px 2px 0px #e07a5fff)
+    filter: drop-shadow(2px 2px 0px #f0887d)
 }
 
 #correctIncorrect{
@@ -439,9 +439,9 @@ body{
 
 #homeimg{
     position: absolute;
-    margin-left: 35%;
-    height: 500px;
-    margin-top: 100px;
+    margin-left: 43%;
+    height: 40%;
+    margin-top: 15%;
     z-index: 0;
 }
 #homebuttons{
@@ -457,7 +457,7 @@ body{
 
 /* popup section */
 #chord-tutorial img {
-max-height:200px;
+max-height:150px;
 max-width:200px;
 height:auto;
 width:auto;
@@ -485,7 +485,7 @@ img.animated-gif{
 }
 #popup {
     width: 650px;
-    height: 550px;
+    height: 700px;
     position:absolute;
     top: 20%;
     left:35%;
@@ -527,9 +527,9 @@ img.animated-gif{
  #popupButton{
         background-color: white;
         border-radius: 8px;
-        border: 1px solid #e07a5fff;
-        border-color: #e07a5fff;
-        color: #e07a5fff;
+        border: 1px solid #f0887d;
+        border-color: #f0887d;
+        color: #f0887d;
         cursor: pointer;
         display: inline-block;
         font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -559,7 +559,7 @@ img.animated-gif{
 
 #tutorialText2{
     font-weight: bold;
-    margin-top: -70px;
+    margin-top: 2px;
 }
 
 .next-button-centering {
@@ -623,4 +623,3 @@ img.animated-gif{
     width: 100px;
     height: 40px;
   }
-
