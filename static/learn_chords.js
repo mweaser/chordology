@@ -33,7 +33,7 @@ let droppedarray;
 
 function createButtons(chords, chord_images) {
     $("#button-row").empty()
-    $("#button-row").append("<div class='col-md-4'> <span class='learn-chord-header'>Learn Chords</span> <br> Click a chord to learn its chord diagram </div>")
+    $("#button-row").append("<div class='col-md-4'> <span class='learn-chord-header'>Learn Chords</span> <br> <div id='learn_msg1'> Click a chord to learn its chord diagram</div> </div>")
     $.each(chords, function(index,  value) {
         var entry = $("<div class='col-md-1'>")
         var button =$("<button class='chord-button'>")
