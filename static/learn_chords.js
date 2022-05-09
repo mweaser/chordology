@@ -4,29 +4,6 @@ let symbols = [
     "3",
 ]
 
-let toggles = [
-    {
-        "id": "but0",
-        "show": "O",
-    },
-    {
-        "id": "but1",
-        "show": "O",
-    },
-    {
-        "id": "but2",
-        "show": "O",
-    },
-    {
-        "id": "but3",
-        "show": "O",
-    },
-    {
-        "id": "but4",
-        "show": "O",
-    }
-]
-
 let CLICKED = "A"; 
 let TOGGLERES;     
 let droppedarray;
@@ -44,9 +21,6 @@ function createButtons(chords, chord_images) {
         $(button).click(function() {
             CLICKED = chords[index]
             $("#chord-image").html("<img class='chord-image-style' src='/static/images/" + chord_images[index] + "'>")
-            
-            
-            
             symbols = ["1","2","3"]
             // togglebutton()
             $("#learning-correct-text").empty()
@@ -312,12 +286,9 @@ function showincorrect(){
 }
 
 function execute(chords, chord_images, symbols, data){
-    // TOGGLERES = new Array(6).fill(1);
     makeNames(symbols)
-    // togglebutton()
     dragdrop(chords, chord_images, data)
     $("#check_but").click(function() { 
-       
         check(data, droppedarray)
     });  
     
