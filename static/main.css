@@ -33,38 +33,49 @@
 }
 
 #choiceOne{
-    font-size: medium;
-    background-color: white;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #3d405b;;
     width: 200px;
     height: 100px;
-
-    color: black;
+    border-radius: 50%;
+    color: white;
+    margin-right: 20px;
 }
 
 #choiceTwo{
-    font-size: medium;
-    background-color: white;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #3d405b;;
     width: 200px;
     height: 100px;
-
-    color: black;
+    border-radius: 50%;
+    color: white;
+    margin-right: 20px;
 }
 
 #choiceThree{
-    font-size: medium;
-    background-color: white;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #3d405b;;
     width: 200px;
     height: 100px;
-
-    color: black;
+    border-radius: 50%;
+    color: white;
+    margin-right: 20px;
+    margin-top: 20px;
 }
 
 #choiceFour{
-    font-size: medium;
-    background-color: white;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #3d405b;;
     width: 200px;
     height: 100px;
-    color: black;
+    border-radius: 50%;
+    color: white;
+    margin-right:20px;
+    margin-top: 20px;
 }
 
 #identify{
@@ -153,7 +164,7 @@
     left: 450px;
 }
 #rowOne{
-    margin-top: 200px;
+    margin-top: 120px;
 }
 
 #rowTwo{
@@ -197,9 +208,34 @@
   margin-left: 800px;
 }
 
+#quiz-next{
+    background-color: rgba(51, 51, 51, 0.05);
+    border-radius: 8px;
+    border-width: 0;
+    color: #333333;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 10px 12px;
+    text-align: center;
+    transition: all 200ms;
+    vertical-align: baseline;
+    white-space: nowrap;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-left: 150px; 
+  }
+
 #nextButton{
     visibility: hidden;
 }
+
 
 #rr{
   background-color: rgba(51, 51, 51, 0.05);
@@ -372,7 +408,9 @@ body{
 }
 
 #correctIncorrect{
-    margin-left: 780px;
+    margin-top: 45px; 
+    margin-bottom: 10px;
+    margin-left: 135px;
     font-weight: bold;
     font-size: 30px;
 }
@@ -465,7 +503,8 @@ margin-top: -100px;
 }
 
 img.animated-gif{
-    width: 560px;
+    /* width: 560px; */
+    width: 400px;
     height: auto;
 }
 
@@ -519,7 +558,7 @@ img.animated-gif{
 
  #score{
     margin-top: 50px;
-    color: darkgray;
+    color: orange;
     font-size: 50px;
     text-align: center;
  }
@@ -593,7 +632,7 @@ img.animated-gif{
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    margin-top: 10px;
+    margin-top: 70px;
     width: 100px;
     height: 40px;
   }

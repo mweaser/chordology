@@ -117,8 +117,12 @@ $(document).ready(function(){
 
     $("#choiceOne").click(function(){
         currentID += 1
-        $("#nn").prop('href', "/quiz/" + currentID)
-        $("#rr").prop('href', "/quiz-recreate/1")
+        if (currentID < 7) {
+            $("#quiz-next").prop('href', "/quiz/" + currentID)
+        }
+        else {
+            $("#quiz-next").prop('href', "/quiz-recreate/1")
+        }
         selectRightAnswer()
 
         $("#choiceOne").attr("disabled", true);
@@ -131,15 +135,7 @@ $(document).ready(function(){
 
         currentID += 1;
 
-        if (currentID <= 7){
-            $("#nextButton").css('visibility', 'visible');
-
-        }
-        else if (currentID == 8){
-            $("#nextButton").css('visibility', 'hidden');
-            $("#resultsButton").css('visibility', 'visible');
-
-        }
+        $("#nextButton").css('visibility', 'visible');
 
 
         if (one == answer){
@@ -191,8 +187,12 @@ $(document).ready(function(){
 
     $("#choiceTwo").click(function(){
         currentID += 1
-        $("#nn").prop('href', "/quiz/" + currentID)
-        $("#rr").prop('href', "/quiz-recreate/1")
+        if (currentID < 7) {
+            $("#quiz-next").prop('href', "/quiz/" + currentID)
+        }
+        else {
+            $("#quiz-next").prop('href', "/quiz-recreate/1")
+        }
         selectRightAnswer()
 
         $("#choiceOne").attr("disabled", true);
@@ -205,13 +205,7 @@ $(document).ready(function(){
 
         currentID += 1;
 
-        if (currentID <= 7){
-            $("#nextButton").css('visibility', 'visible');
-        }
-        else if (currentID == 8){
-            $("#nextButton").css('visibility', 'hidden');
-            $("#resultsButton").css('visibility', 'visible');
-        }
+        $("#nextButton").css('visibility', 'visible');
 
         if (two == answer){
             $(this).css('background-color','green');
@@ -257,8 +251,12 @@ $(document).ready(function(){
 
     $("#choiceThree").click(function(){
         currentID += 1
-        $("#nn").prop('href', "/quiz/" + currentID)
-        $("#rr").prop('href', "/quiz-recreate/1")
+        if (currentID < 7) {
+            $("#quiz-next").prop('href', "/quiz/" + currentID)
+        }
+        else {
+            $("#quiz-next").prop('href', "/quiz-recreate/1")
+        }
         selectRightAnswer()
 
         $("#choiceOne").attr("disabled", true);
@@ -271,14 +269,7 @@ $(document).ready(function(){
 
         currentID += 1;
 
-
-        if (currentID <= 7){
-            $("#nextButton").css('visibility', 'visible');
-        }
-        else if (currentID == 8){
-            $("#nextButton").css('visibility', 'hidden');
-            $("#resultsButton").css('visibility', 'visible');
-        }
+        $("#nextButton").css('visibility', 'visible');
 
         if (three == answer){
             $("#correctIncorrect").text("Correct!")
@@ -324,8 +315,12 @@ $(document).ready(function(){
 
     $("#choiceFour").click(function(){
         currentID += 1
-        $("#nn").prop('href', "/quiz/" + currentID)
-        $("#rr").prop('href', "/quiz-recreate/1")
+        if (currentID < 7) {
+            $("#quiz-next").prop('href', "/quiz/" + currentID)
+        }
+        else {
+            $("#quiz-next").prop('href', "/quiz-recreate/1")
+        }
         selectRightAnswer()
 
         $("#choiceOne").attr("disabled", true);
@@ -338,15 +333,7 @@ $(document).ready(function(){
 
         currentID += 1;
 
-
-        if (currentID <= 7){
-            $("#nextButton").css('visibility', 'visible');
-        }
-        else if (currentID == 8){
-
-            $("#nextButton").css('visibility', 'hidden');
-            $("#resultsButton").css('visibility', 'visible');
-        }
+        $("#nextButton").css('visibility', 'visible');
 
         if (four == answer){
             $("#correctIncorrect").text("Correct!")

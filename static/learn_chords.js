@@ -81,8 +81,8 @@ function makeNames(symbolsentry){
     });
     $(".symbol_entry").draggable({ 
         revert: 'invalid',
-        });
-    }
+    });
+}
 
 
 
