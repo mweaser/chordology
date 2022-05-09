@@ -214,44 +214,53 @@ function dragdrop(chords, chord_images, data){
         let newPosX = ui.offset.left - $(this).offset().left;
         let newPosY = ui.offset.top - $(this).offset().top;
         let countx = 0
-        while (newPosX > -17){
-            newPosX -= 48
-            countx += 1
-        }
-
-        
         // these coordinates are specific to the given graph
+        if ((newPosX >-19 && newPosX < -12)){
+            countx +=0
+        }
+        if ((newPosX > 25 && newPosX < 38)){
+            countx +=1
+        }
+        if ((newPosX > 74 && newPosX < 86)){
+            countx +=2
+        }
+        if ((newPosX > 123 && newPosX < 135)){
+            countx +=3
+        }
+        if ((newPosX > 171 && newPosX < 183)){
+            countx +=4
+        }
+        if ((newPosX > 221 && newPosX < 229)){
+            countx +=5
+        }
+        
+    
         if ( (newPosY > 14 && newPosY < 29)){
             droppedloc[countx] = parseInt(name)
         }
         if ( (newPosY > 80 && newPosY < 96)){
-            droppedloc[countx+5] = parseInt(name)
+            droppedloc[countx+6] = parseInt(name)
         }
         if ( (newPosY > 148 && newPosY < 164)){
-            droppedloc[countx+11] = parseInt(name)
+            droppedloc[countx+12] = parseInt(name)
         }
         if ( (newPosY > 213 && newPosY < 229)){
-            droppedloc[countx+17] = parseInt(name)
+            droppedloc[countx+18] = parseInt(name)
         }
         if ( (newPosY > 282 && newPosY < 300)){
-            droppedloc[countx+23] = parseInt(name)
+            droppedloc[countx+24] = parseInt(name)
         }
         console.log(droppedloc)
         droppedarray = droppedloc
-       
       },
       });
   }
   
 
 function checkhelper(index, droppedarr){
-
-    
-    console.log(TOGGLERES)
     if (TOGGLERES.length>6){
         TOGGLERES = TOGGLERES.slice(0,6)
     }
-    // let entirearr = $.merge( TOGGLERES, droppedarr)
     let entirearr = $.merge( $.merge( [], TOGGLERES ), droppedarr );
     console.log(entirearr)
     let flatArray = [].concat.apply([], data[index]["layout"]); 
@@ -304,13 +313,6 @@ function showincorrect(){
 
 function execute(chords, chord_images, symbols, data){
     // TOGGLERES = new Array(6).fill(1);
-   
-    // $("#but0").html("O")
-    // $("#but1").html("O")
-    // $("#but2").html("O")
-    // $("#but3").html("O")
-    // $("#but4").html("O")
-    // $("#but5").html("O")
     makeNames(symbols)
     // togglebutton()
     dragdrop(chords, chord_images, data)

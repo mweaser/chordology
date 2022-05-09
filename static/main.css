@@ -380,7 +380,10 @@
     padding: 150px;
     color: #f4f1de;
 }
-
+.description{
+    font-weight: bold;
+    color: darkgray;
+}
 .home-header {
     font-size: 100px;
     font-weight: 800;
@@ -524,7 +527,7 @@ img.animated-gif{
 }
 #popup {
     width: 650px;
-    height: 700px;
+    height: 550px;
     position:absolute;
     top: 20%;
     left:35%;
