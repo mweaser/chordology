@@ -296,7 +296,7 @@ function execute(chords, chord_images, symbols, data){
 
 $(document).ready(function(){
     $("#learn").css("font-weight", "bold")
-    $("#learn").css("color", "orange")
+    $("#learn").css("color", "#f0887d")
    
     $("#popupButton").click(function() { 
         PopUp('show')
