@@ -188,6 +188,7 @@ function dragdrop(chords, chord_images, data){
         let newPosX = ui.offset.left - $(this).offset().left;
         let newPosY = ui.offset.top - $(this).offset().top;
         let countx = 0
+     
         // these coordinates are specific to the given graph
         if ((newPosX >-19 && newPosX < -12)){
             countx +=0
@@ -204,7 +205,7 @@ function dragdrop(chords, chord_images, data){
         if ((newPosX > 171 && newPosX < 183)){
             countx +=4
         }
-        if ((newPosX > 221 && newPosX < 229)){
+        if ((newPosX > 221 && newPosX < 231)){
             countx +=5
         }
         
